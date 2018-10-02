@@ -777,7 +777,7 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 582538126}
-  moveSpeed: 12
+  moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!1 &947844002
 GameObject:
@@ -1632,12 +1632,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMoving: 0
-  walkImpulse: 315
+  walkImpulse: 520
   currentWalkSpeed: 0
   soundWavePrefab: {fileID: 50187047079342932, guid: 9e4e284460f0402409d98c914480bb10,
     type: 2}
   bullet: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
-  bulletSpeed: 20
+  bulletSpeed: 25
   shootMax: 0.25
   realTime: 0
   turnManager: {fileID: 1415286645}
@@ -1712,7 +1712,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 18
+  m_LinearDrag: 20
   m_AngularDrag: 18
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 1005020116}
-  moveSpeed: 12
+  moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!1 &1908160769
 GameObject:
@@ -2143,7 +2143,7 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 1499977627}
-  moveSpeed: 12
+  moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!1 &1960366225
 GameObject:

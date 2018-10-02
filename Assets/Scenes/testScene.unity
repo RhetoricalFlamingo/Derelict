@@ -131,18 +131,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &128563027
-SphereCollider:
+--- !u!58 &128563027
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 128563026}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!114 &128563028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,18 +308,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 10
---- !u!135 &189969640
-SphereCollider:
+--- !u!58 &189969640
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189969636}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!1 &202549335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,18 +1021,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1164459172
-SphereCollider:
+--- !u!58 &1164459172
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1164459171}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!114 &1164459173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,7 +1636,7 @@ MonoBehaviour:
   currentWalkSpeed: 0
   soundWavePrefab: {fileID: 50187047079342932, guid: 9e4e284460f0402409d98c914480bb10,
     type: 2}
-  bullet: {fileID: 54547281428108320, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
+  bullet: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
   bulletSpeed: 20
   shootMax: 0.25
   realTime: 0
@@ -1822,18 +1831,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1908160770
-SphereCollider:
+--- !u!58 &1908160770
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1908160769}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!114 &1908160771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,18 +2163,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1960366226
-SphereCollider:
+--- !u!58 &1960366226
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1960366225}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!114 &1960366227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2253,18 +2268,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1966448161
-SphereCollider:
+--- !u!58 &1966448161
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1966448160}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.53
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 11
 --- !u!114 &1966448162
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4614588711944616}
   - component: {fileID: 212220988075569610}
   - component: {fileID: 96288444284438194}
-  - component: {fileID: 54547281428108320}
-  - component: {fileID: 135939786132803868}
   - component: {fileID: 114957055768550422}
+  - component: {fileID: 58779158972049096}
+  - component: {fileID: 50395882856197596}
   m_Layer: 0
   m_Name: playerProjectile
   m_TagString: playerProj
@@ -44,21 +44,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54547281428108320
-Rigidbody:
+--- !u!50 &50395882856197596
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114359133792796}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 56
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58779158972049096
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114359133792796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.43
 --- !u!96 &96288444284438194
 TrailRenderer:
   serializedVersion: 2
@@ -172,18 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
---- !u!135 &135939786132803868
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114359133792796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.43
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212220988075569610
 SpriteRenderer:
   m_ObjectHideFlags: 1

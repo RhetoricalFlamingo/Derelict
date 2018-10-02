@@ -22,7 +22,7 @@ public class gruntAI : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D (Collider2D other)
 	{
 		currentHP -= other.GetComponent<standardBullet>().damage;
 		Destroy(other.gameObject);

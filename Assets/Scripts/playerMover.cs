@@ -22,7 +22,7 @@ public class playerMover : MonoBehaviour {
 	float rotaterTheta = 0;
 	Quaternion lastRotation;
 
-	public Rigidbody bullet;
+	public Rigidbody2D bullet;
 	public float bulletSpeed = 0;
 	private float shootI = 0;
 	public float shootMax = 0;
@@ -108,7 +108,7 @@ public class playerMover : MonoBehaviour {
 			shootI += Time.deltaTime;
 			if (shootI >= shootMax)
 			{
-				Rigidbody shotInstance;
+				Rigidbody2D shotInstance;
 				shotInstance = Instantiate(bullet, this.transform.position, Quaternion.identity);
 				shotInstance.velocity = transform.TransformDirection(Vector3.up * bulletSpeed);
 				shootI = 0;
@@ -117,7 +117,7 @@ public class playerMover : MonoBehaviour {
 
 		if (Input.GetButtonDown("R1"))
 		{
-			Rigidbody shotInstance;
+			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(bullet, this.transform.position, Quaternion.identity);
 			shotInstance.velocity = transform.TransformDirection(Vector3.up * bulletSpeed);
 		}

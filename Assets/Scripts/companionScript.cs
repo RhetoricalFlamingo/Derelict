@@ -13,6 +13,9 @@ public class companionScript : MonoBehaviour
 	private GameObject targetWP;
 	public GameObject lineObject;
 
+	public GameObject bulletPrefab;
+	public float bulletSpeed = 0;
+
 	public float moveSpeed = 0;
 	public float turnSpeedConst = 0;
 	private float turnSpeed = 0;
@@ -41,6 +44,24 @@ public class companionScript : MonoBehaviour
 		else
 		{
 			lineObject.SetActive(false);
+		}
+	}
+
+	private void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.tag == "playerProj")
+		{
+			Destroy(other.gameObject);
+			
+			spreadShot(-30f);
+			spreadShot(-15f);
+			spreadShot(0f);
+			spreadShot(15f);
+			spreadShot(30f);
+			
+			//Rigidbody2D shotInstance;
+			//shotInstance = Instantiate(bullet, this.transform.position + transform.up * 15, Quaternion.identity);
+			//shotInstance.velocity = transform.TransformDirection(transform.up * bulletSpeed);
 		}
 	}
 
@@ -76,5 +97,14 @@ public class companionScript : MonoBehaviour
 		lineObject.SetActive(true);
 		lineObject.GetComponent<LineRenderer>().SetPosition(0, this.transform.position);
 		lineObject.GetComponent<LineRenderer>().SetPosition(1, targetWP.transform.position);
+	}
+
+	void spreadShot(float angleOffset = 0f)
+	{
+		GameObject bullet = Instantiate<GameObject>(bulletPrefab);
+		bullet.transform.position = transform.position + transform.up * 15;
+ 
+		Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
+		bulletRB.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * transform.up * 5000);
 	}
 }

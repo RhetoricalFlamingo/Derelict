@@ -13,6 +13,7 @@ TagManager:
   - placedWaypoint1
   - placedWaypoint2
   - playerProj
+  - compProj
   layers:
   - Default
   - TransparentFX

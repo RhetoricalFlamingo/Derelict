@@ -757,7 +757,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 703958629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.4, y: 12.1, z: 0}
+  m_LocalPosition: {x: 48.4, y: 12.1, z: 44}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
@@ -778,6 +778,9 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 582538126}
+  bulletPrefab: {fileID: 1470279671512824, guid: d7acc917eab06ee49b8f0597466055c5,
+    type: 2}
+  bulletSpeed: 60
   moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!60 &703958633
@@ -1543,7 +1546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512820042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 44}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 703958631}
@@ -1819,7 +1822,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825877012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.600006, y: -4.300001, z: 0}
+  m_LocalPosition: {x: 51.600006, y: -4.300001, z: 44}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
@@ -1840,6 +1843,9 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 1005020116}
+  bulletPrefab: {fileID: 1470279671512824, guid: d7acc917eab06ee49b8f0597466055c5,
+    type: 2}
+  bulletSpeed: 60
   moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!60 &1825877016
@@ -2179,7 +2185,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1955953073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51, y: -18.2, z: 0}
+  m_LocalPosition: {x: 51, y: -18.2, z: 44}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
@@ -2200,6 +2206,9 @@ MonoBehaviour:
   waypointManager: {fileID: 407333652}
   turnManager: {fileID: 1415286645}
   lineObject: {fileID: 1499977627}
+  bulletPrefab: {fileID: 1470279671512824, guid: d7acc917eab06ee49b8f0597466055c5,
+    type: 2}
+  bulletSpeed: 60
   moveSpeed: 21
   turnSpeedConst: 1.1
 --- !u!60 &1955953077

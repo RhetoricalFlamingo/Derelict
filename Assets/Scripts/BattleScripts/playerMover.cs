@@ -127,4 +127,12 @@ public class playerMover : MonoBehaviour {
 			shootI = 0;
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "enemyProj")
+		{
+			Destroy(this.gameObject);
+		}
+	}
 }

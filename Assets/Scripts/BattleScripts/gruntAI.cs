@@ -9,8 +9,11 @@ public class gruntAI : MonoBehaviour
 
 	public int maxHP = 0;
 	public int currentHP = 0;
-	private float moveSpeed = 20f;
+	private float moveSpeed = 0f;
 
+	public Rigidbody2D bullet;
+	float shootI = 0;
+	
 	public GameObject player;
 	public GameObject turnManager;
 	public bool realTime = false;
@@ -19,6 +22,15 @@ public class gruntAI : MonoBehaviour
 	void Awake ()
 	{
 		currentHP = maxHP;
+
+		if (enemyID == 'c')
+		{
+			moveSpeed = 20f;
+		}
+		else if (enemyID == 's')
+		{
+			moveSpeed = 8f;
+		}
 	}
 	
 	// Update is called once per frame
@@ -31,16 +43,26 @@ public class gruntAI : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 
-		if (realTime && enemyID == 'c')
+		if (realTime)
 		{
-			chaser();
+			if (enemyID == 'c')
+			{
+				chaser();
+			}
+			else if (enemyID == 's')
+			{
+				shooter();
+			}
 		}
 	}
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		currentHP -= other.GetComponent<standardBullet>().damage;
-		Destroy(other.gameObject);
+		if (other.tag == "playerProj" || other.tag == "compProj")
+		{
+			currentHP -= other.GetComponent<standardBullet>().damage;
+			Destroy(other.gameObject);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -56,5 +78,22 @@ public class gruntAI : MonoBehaviour
 	{
 		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 		//Debug.Log("chasePlayer");
+	}
+
+	public void shooter()
+	{
+		shootI += Time.deltaTime;
+		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+
+		if (shootI > 1)
+		{
+			Rigidbody2D shotInstance;
+			shotInstance = Instantiate(bullet, this.transform.position, Quaternion.identity);
+			shotInstance.GetComponent<Rigidbody2D>().velocity = ((player.transform.position - this.transform.position) / 25);
+
+			shootI = 0;
+			
+			Debug.Log("Fire");
+		}
 	}
 }

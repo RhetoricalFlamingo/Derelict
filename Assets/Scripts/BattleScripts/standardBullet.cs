@@ -10,6 +10,11 @@ public class standardBullet : MonoBehaviour
 	private float lifeI = 0;
 	public float lifeEnd = 0;
 
+	private Vector3 lastVelo;
+
+	public GameObject turnManager;
+	public bool realTime = false;
+
 	private void Update()
 	{
 		lifeI += Time.deltaTime;
@@ -17,6 +22,7 @@ public class standardBullet : MonoBehaviour
 		if (lifeI >= lifeEnd)
 		{
 			Destroy(this.gameObject);
+			//Debug.Log("bulletDestroyed");
 		}
 	}
 

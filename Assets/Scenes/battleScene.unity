@@ -157,8 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!212 &128563029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -213,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 128563026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 74.9, y: 12.9, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -290,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 189969636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -67.20026, y: -18.278503, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -306,8 +310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!58 &189969640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -758,7 +766,7 @@ Transform:
   m_GameObject: {fileID: 703958629}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 48.4, y: 12.1, z: 44}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
   m_RootOrder: 0
@@ -1078,8 +1086,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!212 &1164459174
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1134,7 +1146,7 @@ Transform:
   m_GameObject: {fileID: 1164459171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 110.9, y: 18, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -1644,6 +1656,7 @@ GameObject:
   - component: {fileID: 1729417675}
   - component: {fileID: 1729417674}
   - component: {fileID: 1729417677}
+  - component: {fileID: 1729417678}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -1751,6 +1764,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &1729417678
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729417673}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.5, y: 9.99}
+    newSize: {x: 9.3, y: 9.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 3.27, y: -4.96}
+      - {x: -3.27, y: -4.96}
+      - {x: -5.26, y: 1.18}
+      - {x: 0, y: 5.03}
+      - {x: 5.26, y: 1.18}
 --- !u!1 &1825877012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1865,7 @@ Transform:
   m_GameObject: {fileID: 1825877012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 51.600006, y: -4.300001, z: 44}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
   m_RootOrder: 2
@@ -1919,8 +1961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!212 &1908160772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1975,7 +2021,7 @@ Transform:
   m_GameObject: {fileID: 1908160769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -77.8, y: -51.7, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -2186,7 +2232,7 @@ Transform:
   m_GameObject: {fileID: 1955953073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 51, y: -18.2, z: 44}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1512820043}
   m_RootOrder: 4
@@ -2282,8 +2328,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!212 &1960366228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2338,7 +2388,7 @@ Transform:
   m_GameObject: {fileID: 1960366225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 91.4, y: -13.3, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -2387,8 +2437,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyID: 99
   maxHP: 10
   currentHP: 10
+  player: {fileID: 1729417673}
+  turnManager: {fileID: 1415286645}
+  realTime: 0
 --- !u!212 &1966448163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2443,7 +2497,7 @@ Transform:
   m_GameObject: {fileID: 1966448160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.3, y: 30.7, z: 44}
-  m_LocalScale: {x: 0.762, y: 0.762, z: 0.762}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10

@@ -26,7 +26,7 @@ public class reticuleTurn_Script : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () {
-		this.transform.position = cam.transform.position + Vector3.forward * 20;
+		this.transform.position = cam.transform.position + Vector3.forward * 50;
 	}
 
 	// Update is called once per frame

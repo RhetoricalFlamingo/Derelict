@@ -36,15 +36,15 @@ public class gruntAI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		realTime = turnManager.GetComponent<turnManagerScript>().realTime;
+		//realTime = turnManager.GetComponent<turnManagerScript>().realTime;
 		
 		if (currentHP <= 0)
 		{
 			Destroy(this.gameObject);
 		}
 
-		if (realTime)
-		{
+		//if (realTime)
+		//{
 			if (enemyID == 'c')
 			{
 				chaser();
@@ -53,7 +53,7 @@ public class gruntAI : MonoBehaviour
 			{
 				shooter();
 			}
-		}
+		//}
 	}
 
 	private void OnTriggerEnter2D (Collider2D other)

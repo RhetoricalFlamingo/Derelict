@@ -16,7 +16,7 @@ public class wayPointManager : MonoBehaviour
 	
 	public List<GameObject> wayPoints0 = new List<GameObject>();
 	public List<GameObject> wayPoints1 = new List<GameObject>();
-	public List<GameObject> wayPoints2 = new List<GameObject>();
+	//public List<GameObject> wayPoints2 = new List<GameObject>();
 
 	public bool realTime = false;
 	private bool lastRealTime = false;
@@ -52,7 +52,7 @@ public class wayPointManager : MonoBehaviour
 				
 			if (selectWaypointList < 0)
 			{
-				selectWaypointList = 2;
+				selectWaypointList = 1;
 			}
 		}
 			
@@ -60,7 +60,7 @@ public class wayPointManager : MonoBehaviour
 		{
 			selectWaypointList++;
 				
-			if (selectWaypointList > 2)
+			if (selectWaypointList > 1)
 			{
 				selectWaypointList = 0;
 			}
@@ -112,7 +112,7 @@ public class wayPointManager : MonoBehaviour
 			{
 				if (selectWaypointList == 0)
 				{
-					Instantiate(placedWaypointPrefab0, GameObject.FindWithTag("waypointAimer").transform.position + (transform.forward * 60), GameObject.FindWithTag("waypointAimer").transform.rotation);
+					Instantiate(placedWaypointPrefab0, new Vector3(GameObject.FindWithTag("waypointAimer").transform.position.x, GameObject.FindWithTag("waypointAimer").transform.position.y, 44f), GameObject.FindWithTag("waypointAimer").transform.rotation);
 					wayPoints0.Add(GameObject.FindWithTag("placedWaypoint0"));
 				}
 				if (selectWaypointList == 1)
@@ -120,11 +120,11 @@ public class wayPointManager : MonoBehaviour
 					Instantiate(placedWaypointPrefab1, GameObject.FindWithTag("waypointAimer").transform.position + (transform.forward * 60), GameObject.FindWithTag("waypointAimer").transform.rotation);
 					wayPoints1.Add(GameObject.FindWithTag("placedWaypoint1"));
 				}
-				if (selectWaypointList == 2)
+				/*if (selectWaypointList == 2)
 				{
 					Instantiate(placedWaypointPrefab2, GameObject.FindWithTag("waypointAimer").transform.position + (transform.forward * 60), GameObject.FindWithTag("waypointAimer").transform.rotation);
 					wayPoints2.Add(GameObject.FindWithTag("placedWaypoint2"));
-				}
+				}*/
 				
 				Destroy(GameObject.FindWithTag("partialWaypoint"));
 				Destroy(GameObject.FindWithTag("waypointAimer"));
@@ -179,7 +179,7 @@ public class wayPointManager : MonoBehaviour
 					}
 				}
 				
-				if (selectWaypointList == 2 && wayPoints2.Count > 0)
+				/*if (selectWaypointList == 2 && wayPoints2.Count > 0)
 				{
 					wayPoints2.RemoveAt(wayPoints2.Count - 1);
 					GameObject[] go2 = GameObject.FindGameObjectsWithTag("placedWaypoint2");
@@ -194,7 +194,7 @@ public class wayPointManager : MonoBehaviour
 							Destroy(go2[i]);
 						}
 					}
-				}
+				}*/
 			}
 			
 			if (circleHeld)		//If player holds circle, increment circleI
@@ -229,7 +229,7 @@ public class wayPointManager : MonoBehaviour
 						Debug.Log("delete all waypoints1");
 					}
 					
-					if (selectWaypointList == 2)
+					/*if (selectWaypointList == 2)
 					{
 						wayPoints2.Clear();
 						
@@ -240,7 +240,7 @@ public class wayPointManager : MonoBehaviour
 						}
 						
 						Debug.Log("delete all waypoints2");
-					}
+					}*/
 				}
 			}
 

@@ -34,8 +34,8 @@ public class companionScript : MonoBehaviour
 		if (realTime)
 		{
 			if ((id_Companion == 0 && waypointManager.GetComponent<wayPointManager>().wayPoints0.Count > 0) ||
-			    (id_Companion == 1 && waypointManager.GetComponent<wayPointManager>().wayPoints1.Count > 0) ||
-			    (id_Companion == 2 && waypointManager.GetComponent<wayPointManager>().wayPoints2.Count > 0))
+			    (id_Companion == 1 && waypointManager.GetComponent<wayPointManager>().wayPoints1.Count > 0))/* ||
+			    (id_Companion == 2 && waypointManager.GetComponent<wayPointManager>().wayPoints2.Count > 0))*/
 			{
 				moveTurn();
 				pathRender();

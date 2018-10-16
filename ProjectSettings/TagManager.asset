@@ -15,6 +15,7 @@ TagManager:
   - playerProj
   - compProj
   - enemyProj
+  - Ghost
   layers:
   - Default
   - TransparentFX

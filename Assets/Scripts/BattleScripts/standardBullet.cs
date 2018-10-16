@@ -28,6 +28,6 @@ public class standardBullet : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		this.GetComponent<Rigidbody2D>().velocity *= 1.04f;
+		//this.GetComponent<Rigidbody2D>().velocity *= 1f;
 	}
 }

@@ -1,99 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gruntAI : MonoBehaviour
 {
-
-    public char enemyID = ' ';
-
-	public int maxHP = 0;
-	public int currentHP = 0;
-	private float moveSpeed = 0f;
-
-	public Rigidbody2D bullet;
-	float shootI = 0;
+	private float currentHP = 0;
+	public float maxHP = 0;
+	public float moveSpeed = 0;
 	
-	public GameObject player;
-	public GameObject turnManager;
-	public bool realTime = false;
+	public GameObject[] chars = new GameObject[2];
+	private GameObject targetChar;
 	
 	// Use this for initialization
 	void Awake ()
 	{
 		currentHP = maxHP;
-
-		if (enemyID == 'c')
-		{
-			moveSpeed = 20f;
-		}
-		else if (enemyID == 's')
-		{
-			moveSpeed = 8f;
-		}
 	}
 	
 	// Update is called once per frame
-	void Update ()
-	{
-		//realTime = turnManager.GetComponent<turnManagerScript>().realTime;
-		
+	void Update () {
 		if (currentHP <= 0)
 		{
 			Destroy(this.gameObject);
 		}
+		
+		TargetDistanceCheck();
 
-		//if (realTime)
-		//{
-			if (enemyID == 'c')
-			{
-				chaser();
-			}
-			else if (enemyID == 's')
-			{
-				shooter();
-			}
-		//}
+			this.transform.position = Vector2.MoveTowards(this.transform.position, targetChar.transform.position, moveSpeed * Time.deltaTime);
 	}
-
+	
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "playerProj" || other.tag == "compProj")
+		if (other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj")
 		{
 			currentHP -= other.GetComponent<standardBullet>().damage;
 			Destroy(other.gameObject);
 		}
 	}
-
+	
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (enemyID == 'c' && other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player")
 		{
 			Destroy(other.gameObject);
 			Debug.Log("playerDead");
+
+			SceneManager.LoadScene("coopTestScene");
 		}
 	}
 
-	public void chaser()
+	private void TargetDistanceCheck()
 	{
-		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-		//Debug.Log("chasePlayer");
-	}
+		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
+		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
 
-	public void shooter()
-	{
-		shootI += Time.deltaTime;
-		this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-
-		if (shootI > 1)
+		if (dist0 < dist1)
 		{
-			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(bullet, this.transform.position, Quaternion.identity);
-			shotInstance.GetComponent<Rigidbody2D>().velocity = ((player.transform.position - this.transform.position) / 25);
-
-			shootI = 0;
-			
-			Debug.Log("Fire");
+			targetChar = chars[0];
 		}
+		else targetChar = chars[1];
 	}
 }

@@ -20,10 +20,15 @@ public class GhostPlayer : MonoBehaviour
 	public float shootMax = 0;
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
+
+	public GameObject mainCam;
+	private Rigidbody2D camRB;
+	public float camSpeed = 0;
 	
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		camRB = mainCam.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +37,7 @@ public class GhostPlayer : MonoBehaviour
 		distToTargetChar();
 		Reposess();
 		Rotation();
+		CameraMove();
 
 		if (atTarget)
 		{
@@ -74,11 +80,12 @@ public class GhostPlayer : MonoBehaviour
 		}
 	}
 
-	void Rotation()
+	void Rotation()		//Rotate currently-controlled character
 	{
-		if (atTarget && (Input.GetAxis ("RVertical_C2") != 0 || Input.GetAxis ("RHorizontal_C2") != 0)) {
-			rotaterTheta = Mathf.Atan2 (Input.GetAxis ("RVertical_C2"), Input.GetAxis ("RHorizontal_C2")) * -Mathf.Rad2Deg;
-			playerChars[targetHost].transform.rotation = Quaternion.Euler (0, 0, rotaterTheta - 90.0f);
+		if (atTarget && (Input.GetAxis("RVertical_C2") != 0 || Input.GetAxis("RHorizontal_C2") != 0))
+		{
+			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
+			playerChars[targetHost].transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
 			lastRotation[0] = playerChars[0].transform.rotation;
 			lastRotation[1] = playerChars[1].transform.rotation;
 			Debug.Log("atTargetRotation");
@@ -87,8 +94,8 @@ public class GhostPlayer : MonoBehaviour
 		{
 			playerChars[otherHost].transform.rotation = lastRotation[otherHost];
 		}
-	}	//Rotate currently-controlled character
-	
+	}
+
 	void Shoot()	//Fire weapon of currently-controlled character
 	{
 		if (Input.GetButton("R1_C2"))
@@ -114,5 +121,11 @@ public class GhostPlayer : MonoBehaviour
 		{
 			shootI = 0;
 		}
+	}
+
+	void CameraMove()		//Move Camera & Death Plane
+	{
+		camRB.velocity = (new Vector2 ((camSpeed * Input.GetAxis("LHorizontal_C2")),
+			(camSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 }

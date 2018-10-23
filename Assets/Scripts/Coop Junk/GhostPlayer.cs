@@ -14,6 +14,7 @@ public class GhostPlayer : MonoBehaviour
 	private float modRepoSpeed = 0;
 
 	private float rotaterTheta = 0;
+	public float rotSpeed = 0;
 	private Quaternion[] lastRotation = new Quaternion[2];
 
 	private float shootI = 0;
@@ -27,6 +28,9 @@ public class GhostPlayer : MonoBehaviour
 	private Rigidbody2D mm_PlayerRB;
 	public float camSpeed = 0;
 	private float mm_PlayerSpeed = 0;
+
+	private bool inSloMo = false;
+	private float smI = 0;
 	
 	// Use this for initialization
 	void Awake ()
@@ -49,6 +53,11 @@ public class GhostPlayer : MonoBehaviour
 		{
 			Shoot();
 		}
+
+		if (inSloMo)
+		{
+			sloMo();
+		}
 	}
 
 	void distToTargetChar()
@@ -69,13 +78,15 @@ public class GhostPlayer : MonoBehaviour
 
 	void Reposess()		//Change current character to control
 	{
-		if (Input.GetButtonDown("L1_C2"))
+		if (Input.GetButtonDown("L1_C2") && atTarget)
 		{
 			if (targetHost == 0)
 				targetHost = 1;
 			else targetHost = 0;
 
 			modRepoSpeed = repoSpeed;
+
+			inSloMo = true;
 		}
 		
 		this.transform.position = Vector3.MoveTowards(transform.position, playerChars[targetHost].transform.position, modRepoSpeed * Time.deltaTime);
@@ -92,6 +103,7 @@ public class GhostPlayer : MonoBehaviour
 		{
 			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
 			playerChars[targetHost].transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
+			
 			lastRotation[0] = playerChars[0].transform.rotation;
 			lastRotation[1] = playerChars[1].transform.rotation;
 			Debug.Log("atTargetRotation");
@@ -138,5 +150,25 @@ public class GhostPlayer : MonoBehaviour
 		
 		mm_PlayerRB.velocity = (new Vector2 ((mm_PlayerSpeed * Input.GetAxis("LHorizontal_C2")),
 			(mm_PlayerSpeed * Input.GetAxis("LVertical_C2"))));
+	}
+
+	void sloMo()
+	{
+		if (Time.timeScale == 1)
+		{
+			Time.timeScale = .1f;
+		}
+
+		if (Time.timeScale == .1f)
+		{
+			smI += Time.deltaTime;
+
+			if (smI > .0325f)
+			{
+				Time.timeScale = 1f;
+				inSloMo = false;
+				smI = 0;
+			}
+		}
 	}
 }

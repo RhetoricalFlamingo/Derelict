@@ -17310,7 +17310,8 @@ MonoBehaviour:
   - {fileID: 260246085}
   - {fileID: 1289959299}
   targetHost: 0
-  repoSpeed: 350
+  repoSpeed: 450
+  rotSpeed: 1
   shootMax: 0.25
   proj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
   projSpeed: 80

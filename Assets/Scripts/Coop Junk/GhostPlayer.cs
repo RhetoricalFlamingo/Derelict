@@ -34,7 +34,7 @@ public class GhostPlayer : MonoBehaviour
 		camRB = mainCam.GetComponent<Rigidbody2D>();
 		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		
-		mm_PlayerSpeed = camSpeed / 10;
+		mm_PlayerSpeed = camSpeed / 5.325f;
 	}
 	
 	// Update is called once per frame
@@ -121,6 +121,8 @@ public class GhostPlayer : MonoBehaviour
 			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position, Quaternion.identity);
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
+			
+			Debug.Log("shoot");
 		}
 
 		if (Input.GetButtonUp("R1_C2"))
@@ -135,6 +137,6 @@ public class GhostPlayer : MonoBehaviour
 			(camSpeed * Input.GetAxis("LVertical_C2"))));
 		
 		mm_PlayerRB.velocity = (new Vector2 ((mm_PlayerSpeed * Input.GetAxis("LHorizontal_C2")),
-			(camSpeed * Input.GetAxis("LVertical_C2"))));
+			(mm_PlayerSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 }

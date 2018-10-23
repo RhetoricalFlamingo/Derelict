@@ -15,6 +15,8 @@ public class invinciMech_Script : MonoBehaviour
 	public bool stunned = false;
 	public float stunMax = 0;
 	float stunI = 0;
+
+	public bool active = false;
 	
 	// Use this for initialization
 	void Awake ()
@@ -35,7 +37,7 @@ public class invinciMech_Script : MonoBehaviour
 		{
 			Stunned();
 		}
-		else
+		else if (active)
 		{
 			this.transform.position = Vector2.MoveTowards(this.transform.position, targetChar.transform.position, moveSpeed * Time.deltaTime);
 		}
@@ -72,11 +74,17 @@ public class invinciMech_Script : MonoBehaviour
 		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
 		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
 
-		if (dist0 < dist1)
+		if (dist0 < dist1 && dist0 < 130)
 		{
 			targetChar = chars[0];
+			active = true;
 		}
-		else targetChar = chars[1];
+		else if (dist1 < 130)
+		{
+			targetChar = chars[1];
+			active = true;
+		}
+		else active = false;
 	}
 
 	private void Stunned()

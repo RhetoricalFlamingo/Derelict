@@ -292,7 +292,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 16
+    joyNum: 3
   - serializedVersion: 3
     m_Name: R1
     descriptiveName: 

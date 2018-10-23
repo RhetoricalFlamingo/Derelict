@@ -11,6 +11,7 @@ public class invinciMech_Script : MonoBehaviour
 	
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
+	public GameObject ghost;
 
 	public bool stunned = false;
 	public float stunMax = 0;
@@ -99,5 +100,7 @@ public class invinciMech_Script : MonoBehaviour
 			stunned = false;
 			this.GetComponent<SpriteRenderer>().color = new Vector4(255, 0, 152, 255);
 		}
+		
+		ghost.GetComponent<GhostPlayer>().sloMo();
 	}
 }

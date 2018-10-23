@@ -152,7 +152,7 @@ public class GhostPlayer : MonoBehaviour
 			(mm_PlayerSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 
-	void sloMo()
+	public void sloMo()
 	{
 		if (Time.timeScale == 1)
 		{

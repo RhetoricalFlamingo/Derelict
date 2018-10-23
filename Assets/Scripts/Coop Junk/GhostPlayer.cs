@@ -23,12 +23,18 @@ public class GhostPlayer : MonoBehaviour
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
+	public GameObject mm_Player;
+	private Rigidbody2D mm_PlayerRB;
 	public float camSpeed = 0;
+	private float mm_PlayerSpeed = 0;
 	
 	// Use this for initialization
-	void Start ()
+	void Awake ()
 	{
 		camRB = mainCam.GetComponent<Rigidbody2D>();
+		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
+		
+		mm_PlayerSpeed = camSpeed / 10;
 	}
 	
 	// Update is called once per frame
@@ -126,6 +132,9 @@ public class GhostPlayer : MonoBehaviour
 	void CameraMove()		//Move Camera & Death Plane
 	{
 		camRB.velocity = (new Vector2 ((camSpeed * Input.GetAxis("LHorizontal_C2")),
+			(camSpeed * Input.GetAxis("LVertical_C2"))));
+		
+		mm_PlayerRB.velocity = (new Vector2 ((mm_PlayerSpeed * Input.GetAxis("LHorizontal_C2")),
 			(camSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 }

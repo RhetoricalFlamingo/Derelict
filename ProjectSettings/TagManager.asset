@@ -50,6 +50,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Environment
+    uniqueID: 1099821505
+    locked: 0
+  - name: Level Border
+    uniqueID: 3082806645
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

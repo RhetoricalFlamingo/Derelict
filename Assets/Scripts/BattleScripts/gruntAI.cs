@@ -11,6 +11,8 @@ public class gruntAI : MonoBehaviour
 	
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
+
+	public bool active = false;
 	
 	// Use this for initialization
 	void Awake ()
@@ -27,7 +29,11 @@ public class gruntAI : MonoBehaviour
 		
 		TargetDistanceCheck();
 
-			this.transform.position = Vector2.MoveTowards(this.transform.position, targetChar.transform.position, moveSpeed * Time.deltaTime);
+		if (active)
+		{
+			this.transform.position = Vector2.MoveTowards(this.transform.position, targetChar.transform.position,
+				moveSpeed * Time.deltaTime);
+		}
 	}
 	
 	private void OnTriggerEnter2D (Collider2D other)
@@ -55,10 +61,16 @@ public class gruntAI : MonoBehaviour
 		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
 		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
 
-		if (dist0 < dist1)
+		if (dist0 < dist1 && dist0 < 100)
 		{
 			targetChar = chars[0];
+			active = true;
 		}
-		else targetChar = chars[1];
+		else if (dist1 < 100)
+		{
+			targetChar = chars[1];
+			active = true;
+		}
+		else active = false;
 	}
 }

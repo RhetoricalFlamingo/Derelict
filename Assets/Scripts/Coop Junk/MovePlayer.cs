@@ -38,7 +38,7 @@ public class MovePlayer : MonoBehaviour
 	{
 		if (char_Index == 0)
 		{
-			playerRBs[char_Index].velocity = (new Vector2((moveImpulse[char_Index] * Input.GetAxis("LHorizontal")),
+			playerRBs[char_Index].velocity = (new Vector2 ((moveImpulse[char_Index] * Input.GetAxis("LHorizontal")),
 				(moveImpulse[char_Index] * Input.GetAxis("LVertical"))));
 		}
 		else

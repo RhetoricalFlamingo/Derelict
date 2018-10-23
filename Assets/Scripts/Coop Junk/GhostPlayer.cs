@@ -34,7 +34,7 @@ public class GhostPlayer : MonoBehaviour
 		camRB = mainCam.GetComponent<Rigidbody2D>();
 		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		
-		mm_PlayerSpeed = camSpeed / 5.325f;
+		mm_PlayerSpeed = camSpeed / 4.5f;
 	}
 	
 	// Update is called once per frame

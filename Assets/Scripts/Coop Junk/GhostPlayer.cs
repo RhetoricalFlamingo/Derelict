@@ -161,9 +161,9 @@ public class GhostPlayer : MonoBehaviour
 
 		if (Time.timeScale == .1f)
 		{
-			smI += Time.deltaTime;
+			smI += Time.unscaledDeltaTime;
 
-			if (smI > .0325f)
+			if (smI > .1f)
 			{
 				Time.timeScale = 1f;
 				inSloMo = false;

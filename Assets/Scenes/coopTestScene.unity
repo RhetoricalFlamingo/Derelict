@@ -2740,7 +2740,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5377358, g: 0.4119517, b: 0.34242612, a: 0.047058824}
+  m_BackGroundColor: {r: 0.45683515, g: 0.5471698, b: 0.50139195, a: 0.047058824}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -16858,7 +16858,7 @@ MonoBehaviour:
   rotSpeed: 1
   shootMax: 2
   proj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
-  projSpeed: 1000
+  projSpeed: 1500
   mainCam: {fileID: 1993952080}
   mm_Player: {fileID: 1632111145}
   camSpeed: 14
@@ -16899,7 +16899,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.25
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -27411,7 +27411,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.4716981, g: 0.41457486, b: 0.38937342, a: 0}
+  m_BackGroundColor: {r: 0.30691525, g: 0.5377358, b: 0.4656975, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}

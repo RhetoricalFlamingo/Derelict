@@ -17,6 +17,8 @@ public class standardBullet : MonoBehaviour
 
 	private void Update()
 	{
+		//this.GetComponent<Rigidbody2D>().velocity *= 56 * Time.deltaTime;
+		
 		lifeI += Time.deltaTime;
 
 		if (lifeI >= lifeEnd)
@@ -24,10 +26,5 @@ public class standardBullet : MonoBehaviour
 			Destroy(this.gameObject);
 			//Debug.Log("bulletDestroyed");
 		}
-	}
-
-	private void FixedUpdate()
-	{
-		//this.GetComponent<Rigidbody2D>().velocity *= 1f;
 	}
 }

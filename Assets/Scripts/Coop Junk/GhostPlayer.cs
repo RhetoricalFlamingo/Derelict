@@ -29,6 +29,7 @@ public class GhostPlayer : MonoBehaviour
 	public float camSpeed = 0;
 	private float mm_PlayerSpeed = 0;
 
+	public GameObject GameManager;
 	private bool inSloMo = false;
 	private float smI = 0;
 	
@@ -53,11 +54,6 @@ public class GhostPlayer : MonoBehaviour
 		{
 			Shoot();
 		}
-
-		if (inSloMo)
-		{
-			sloMo();
-		}
 	}
 
 	void distToTargetChar()
@@ -80,13 +76,13 @@ public class GhostPlayer : MonoBehaviour
 	{
 		if (Input.GetButtonDown("L1_C2") && atTarget)
 		{
+			GameManager.GetComponent<TimeManager>().inSloMo = true;
+			
 			if (targetHost == 0)
 				targetHost = 1;
 			else targetHost = 0;
 
 			modRepoSpeed = repoSpeed;
-
-			inSloMo = true;
 		}
 		
 		this.transform.position = Vector3.MoveTowards(transform.position, playerChars[targetHost].transform.position, modRepoSpeed * Time.deltaTime);
@@ -163,7 +159,7 @@ public class GhostPlayer : MonoBehaviour
 		{
 			smI += Time.unscaledDeltaTime;
 
-			if (smI > .1f)
+			if (smI > .2f)
 			{
 				Time.timeScale = 1f;
 				inSloMo = false;

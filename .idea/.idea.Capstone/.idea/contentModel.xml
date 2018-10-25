@@ -190,6 +190,7 @@
             <e p="invinciMech_Script.cs" t="Include" />
             <e p="MovePlayer.cs" t="Include" />
           </e>
+          <e p="TimeManager.cs" t="Include" />
           <e p="wallTrigger.cs" t="Include" />
         </e>
       </e>

@@ -19,6 +19,8 @@ public class invinciMech_Script : MonoBehaviour
 
 	public bool active = false;
 	
+	public GameObject GameManager;
+	
 	// Use this for initialization
 	void Awake ()
 	{
@@ -46,7 +48,7 @@ public class invinciMech_Script : MonoBehaviour
 	
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj")
+		if ((other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj") && stunned)
 		{
 			currentHP -= other.GetComponent<standardBullet>().damage;
 			Destroy(other.gameObject);
@@ -55,7 +57,9 @@ public class invinciMech_Script : MonoBehaviour
 		if (other.gameObject.tag == "Ghost")
 		{
 			stunned = true;
-			Debug.Log("stunned");
+			GameManager.GetComponent<TimeManager>().inSloMo = true;
+			GameManager.GetComponent<TimeManager>().smI = 0;
+			//Debug.Log("stunned");
 		}
 	}
 	

@@ -115,7 +115,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  lifeEnd: 2.5
+  lifeEnd: 0.65
   turnManager: {fileID: 0}
   realTime: 0
 --- !u!212 &212220988075569610

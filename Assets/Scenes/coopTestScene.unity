@@ -16856,9 +16856,9 @@ MonoBehaviour:
   targetHost: 0
   repoSpeed: 450
   rotSpeed: 1
-  shootMax: 0.1
+  shootMax: 2
   proj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
-  projSpeed: 200
+  projSpeed: 1000
   mainCam: {fileID: 1993952080}
   mm_Player: {fileID: 1632111145}
   camSpeed: 14
@@ -16899,7 +16899,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 1
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1

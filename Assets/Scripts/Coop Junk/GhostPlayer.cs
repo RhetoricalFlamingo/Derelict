@@ -21,6 +21,7 @@ public class GhostPlayer : MonoBehaviour
 	public float shootMax = 0;
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
+	bool reloading = false;
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
@@ -112,31 +113,30 @@ public class GhostPlayer : MonoBehaviour
 
 	void Shoot()	//Fire weapon of currently-controlled character
 	{
-		if (Input.GetButton("R1_C2"))
+		if (reloading)
 		{
 			shootI += Time.deltaTime;
 			if (shootI >= shootMax)
 			{
-				Rigidbody2D shotInstance;
-				shotInstance = Instantiate(proj, playerChars[targetHost].transform.position, Quaternion.identity);
-				shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
-				shootI = 0;
+				reloading = false;
 			}
 		}
 
-		if (Input.GetButtonDown("R1_C2"))
+		if (!reloading && Input.GetButtonDown("R1_C2"))
 		{
 			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position, Quaternion.identity);
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
-			
+
+			shootI = 0;
+			reloading = true;
 			Debug.Log("shoot");
 		}
 
-		if (Input.GetButtonUp("R1_C2"))
+		/*if (Input.GetButtonUp("R1_C2"))
 		{
 			shootI = 0;
-		}
+		}*/
 	}
 
 	void CameraMove()		//Move Camera & Death Plane

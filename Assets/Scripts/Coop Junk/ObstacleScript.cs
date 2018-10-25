@@ -19,6 +19,7 @@ public class ObstacleScript : MonoBehaviour {
 		if (other.gameObject.tag == "playerProj")
 		{
 			Destroy(other.gameObject);
+			Debug.Log("Bullet Delete");
 		}
 	}
 }

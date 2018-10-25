@@ -48,18 +48,22 @@ public class invinciMech_Script : MonoBehaviour
 	
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if ((other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj") && stunned)
-		{
-			currentHP -= other.GetComponent<standardBullet>().damage;
-			Destroy(other.gameObject);
-		}
-		
 		if (other.gameObject.tag == "Ghost")
 		{
 			stunned = true;
 			GameManager.GetComponent<TimeManager>().inSloMo = true;
 			GameManager.GetComponent<TimeManager>().smI = 0;
 			//Debug.Log("stunned");
+		}
+		
+		if ((other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj"))
+		{
+			if (stunned)
+			{
+				currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
+			}
+
+			Destroy(other.gameObject);
 		}
 	}
 	

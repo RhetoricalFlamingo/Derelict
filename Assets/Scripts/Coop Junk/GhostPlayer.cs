@@ -57,6 +57,15 @@ public class GhostPlayer : MonoBehaviour
 		}
 	}
 
+	/*private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "playerProj")
+		{
+			reloading = false;
+			shootI = 0;
+		}
+	}*/
+
 	void distToTargetChar()
 	{
 		if (Vector2.Distance(transform.position, playerChars[targetHost].transform.position) < 8f)
@@ -125,12 +134,12 @@ public class GhostPlayer : MonoBehaviour
 		if (!reloading && Input.GetButtonDown("R1_C2"))
 		{
 			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position, Quaternion.identity);
+			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 8), Quaternion.identity);
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
 
 			shootI = 0;
 			reloading = true;
-			Debug.Log("shoot");
+			//Debug.Log("shoot");
 		}
 
 		/*if (Input.GetButtonUp("R1_C2"))

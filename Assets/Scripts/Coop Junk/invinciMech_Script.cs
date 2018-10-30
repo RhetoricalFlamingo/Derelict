@@ -83,12 +83,12 @@ public class invinciMech_Script : MonoBehaviour
 		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
 		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
 
-		if (dist0 < dist1 && dist0 < 130)
+		if (dist0 < dist1 && dist0 < 150)
 		{
 			targetChar = chars[0];
 			active = true;
 		}
-		else if (dist1 < 130)
+		else if (dist1 < 150)
 		{
 			targetChar = chars[1];
 			active = true;

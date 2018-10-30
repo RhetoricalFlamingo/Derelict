@@ -12,6 +12,8 @@ public class gruntAI : MonoBehaviour
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
 
+	public string ID = "";
+
 	public bool active = false;
 	
 	// Use this for initialization
@@ -24,6 +26,14 @@ public class gruntAI : MonoBehaviour
 	void Update () {
 		if (currentHP <= 0)
 		{
+			if (ID == "hasDoor")
+			{
+				foreach (GameObject go in this.GetComponent<doorDestroyer>().doors)
+				{
+					Destroy(go);
+				}
+			}
+
 			Destroy(this.gameObject);
 		}
 		
@@ -61,12 +71,12 @@ public class gruntAI : MonoBehaviour
 		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
 		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
 
-		if (dist0 < dist1 && dist0 < 130)
+		if (dist0 < dist1 && dist0 < 150)
 		{
 			targetChar = chars[0];
 			active = true;
 		}
-		else if (dist1 < 130)
+		else if (dist1 < 150)
 		{
 			targetChar = chars[1];
 			active = true;

@@ -193,6 +193,10 @@
             <e p="TimeManager.cs" t="Include" />
             <e p="wallTrigger.cs" t="Include" />
           </e>
+          <e p="doorDestroyer.cs" t="Include" />
+          <e p="shooterBullet.cs" t="Include" />
+          <e p="spinEnemy.cs" t="Include" />
+          <e p="switchScript.cs" t="Include" />
         </e>
       </e>
       <e p="Capstone.sln" t="IncludeFlat" />

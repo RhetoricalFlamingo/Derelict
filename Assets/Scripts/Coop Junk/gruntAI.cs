@@ -51,7 +51,6 @@ public class gruntAI : MonoBehaviour
 		if (other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj")
 		{
 			currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
-			Destroy(other.gameObject);
 		}
 	}
 	

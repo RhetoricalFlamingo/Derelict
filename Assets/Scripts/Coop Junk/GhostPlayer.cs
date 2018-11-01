@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GhostPlayer : MonoBehaviour
 {
@@ -17,11 +19,11 @@ public class GhostPlayer : MonoBehaviour
 	public float rotSpeed = 0;
 	private Quaternion[] lastRotation = new Quaternion[2];
 
-	private float shootI = 0;
-	public float shootMax = 0;
+	private float chargeI = 0;
+	public float chargeMax = 0;
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
-	bool reloading = false;
+	bool reloaded = true;
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
@@ -50,11 +52,7 @@ public class GhostPlayer : MonoBehaviour
 		Reposess();
 		Rotation();
 		CameraMove();
-
-		if (atTarget)
-		{
-			Shoot();
-		}
+		Shoot();
 	}
 
 	/*private void OnCollisionEnter2D(Collision2D other)
@@ -122,30 +120,33 @@ public class GhostPlayer : MonoBehaviour
 
 	void Shoot()	//Fire weapon of currently-controlled character
 	{
-		if (reloading)
+		if (Input.GetButton("R1_C2") && reloaded && atTarget)
 		{
-			shootI += Time.deltaTime;
-			if (shootI >= shootMax)
+			chargeI += Time.deltaTime * 5;
+			playerChars[targetHost].transform.position +=
+				new Vector3(Random.Range(-chargeI / 5, chargeI / 5), Random.Range(-chargeI / 5, chargeI / 5), 0f);
+			
+			if (chargeI >= chargeMax)
 			{
-				reloading = false;
+				chargeI = chargeMax;
 			}
 		}
 
-		if (!reloading && Input.GetButtonDown("R1_C2"))
+		if (chargeI == chargeMax && atTarget)
 		{
 			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 8), Quaternion.identity);
+			shotInstance.transform.localScale = Vector2.one * chargeI;
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
 
-			shootI = 0;
-			reloading = true;
-			//Debug.Log("shoot");
+			chargeI = 0;
+			reloaded = false;
 		}
 
-		/*if (Input.GetButtonUp("R1_C2"))
+		if (Input.GetButtonDown("R1_C2"))
 		{
-			shootI = 0;
-		}*/
+			reloaded = true;
+		}
 	}
 
 	void CameraMove()		//Move Camera & Death Plane

@@ -62,8 +62,10 @@ public class invinciMech_Script : MonoBehaviour
 			{
 				currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
 			}
-
-			Destroy(other.gameObject);
+			else
+			{
+				Destroy(other.gameObject);
+			}
 		}
 	}
 	

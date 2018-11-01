@@ -21,8 +21,6 @@ public class MovePlayer : MonoBehaviour
 	public Rigidbody2D[] playerRBs = new Rigidbody2D[2];
 
 	public GameObject mainCam;
-	private float xBuffer = 171.5f;
-	private float yBuffer = 95f;
 	
 	// Use this for initialization
 	void Start () {
@@ -51,30 +49,10 @@ public class MovePlayer : MonoBehaviour
 		
 		if (char_Index == 0)
 		{
-			if (chars[char_Index].transform.position.x < mainCam.transform.position.x - xBuffer && LJOY_Write.x < 0)	//Player0 camera boundaries, keeps player from moving away from camera once at screen edge
-				LJOY_Write.x = 0;
-			if (chars[char_Index].transform.position.x > mainCam.transform.position.x + xBuffer && LJOY_Write.x > 0)
-				LJOY_Write.x = 0;
-			if (chars[char_Index].transform.position.y < mainCam.transform.position.y - yBuffer && LJOY_Write.y < 0)
-				LJOY_Write.y = 0;
-			if (chars[char_Index].transform.position.y > mainCam.transform.position.y + yBuffer && LJOY_Write.y > 0)
-				LJOY_Write.y = 0;
-			
-			
 			playerRBs[char_Index].velocity += LJOY_Write * moveImpulse[char_Index];	//move player0
 		}
 		else if (char_Index == 1)
 		{
-			if (chars[char_Index].transform.position.x < mainCam.transform.position.x - xBuffer && RJOY_Write.x < 0)	//Player1 camera boundaries, keeps player from moving away from camera once at screen edge
-				RJOY_Write.x = 0;
-			if (chars[char_Index].transform.position.x > mainCam.transform.position.x + xBuffer && RJOY_Write.x > 0)
-				RJOY_Write.x = 0;
-			if (chars[char_Index].transform.position.y < mainCam.transform.position.y - yBuffer && RJOY_Write.y < 0)
-				RJOY_Write.y = 0;
-			if (chars[char_Index].transform.position.y > mainCam.transform.position.y + yBuffer && RJOY_Write.y > 0)
-				RJOY_Write.y = 0;
-
-
 			playerRBs[char_Index].velocity += RJOY_Write * moveImpulse[char_Index];	//move player1
 		}
 		

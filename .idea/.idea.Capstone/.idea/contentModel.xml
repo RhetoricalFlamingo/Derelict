@@ -175,28 +175,29 @@
           </e>
           <e p="BattleScripts" t="Include">
             <e p="companionScript.cs" t="Include" />
-            <e p="gruntAI.cs" t="Include" />
             <e p="playerMover.cs" t="Include" />
             <e p="reticuleAimer.cs" t="Include" />
             <e p="reticuleTurn_Script.cs" t="Include" />
             <e p="soundWaveScript.cs" t="Include" />
-            <e p="standardBullet.cs" t="Include" />
             <e p="turnManagerScript.cs" t="Include" />
             <e p="turnMenuSelector.cs" t="Include" />
             <e p="wayPointManager.cs" t="Include" />
           </e>
           <e p="Coop Junk" t="Include">
+            <e p="cameraController.cs" t="Include" />
+            <e p="doorDestroyer.cs" t="Include" />
             <e p="GhostPlayer.cs" t="Include" />
+            <e p="gruntAI.cs" t="Include" />
             <e p="invinciMech_Script.cs" t="Include" />
             <e p="MovePlayer.cs" t="Include" />
             <e p="ObstacleScript.cs" t="Include" />
+            <e p="shooterBullet.cs" t="Include" />
+            <e p="spinEnemy.cs" t="Include" />
+            <e p="standardBullet.cs" t="Include" />
+            <e p="switchScript.cs" t="Include" />
             <e p="TimeManager.cs" t="Include" />
             <e p="wallTrigger.cs" t="Include" />
           </e>
-          <e p="doorDestroyer.cs" t="Include" />
-          <e p="shooterBullet.cs" t="Include" />
-          <e p="spinEnemy.cs" t="Include" />
-          <e p="switchScript.cs" t="Include" />
         </e>
       </e>
       <e p="Capstone.sln" t="IncludeFlat" />

@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  isActive: 0
   shotSpeed: 60
   shotDelay: 0.42
   bulletInstance: {fileID: 1802708576519680, guid: 310860e739ffa2347958a07308556994,
@@ -111,7 +112,7 @@ MonoBehaviour:
   chars:
   - {fileID: 0}
   - {fileID: 0}
-  ID: 
+  ID: spinShot
   active: 0
 --- !u!212 &212434644329299818
 SpriteRenderer:

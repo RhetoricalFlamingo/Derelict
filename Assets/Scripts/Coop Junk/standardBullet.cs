@@ -14,19 +14,21 @@ public class standardBullet : MonoBehaviour
 	private Vector3 lastVelo;
 	private Rigidbody2D thisRB;
 
+	public GameObject ghost;
 	public GameObject turnManager;
 	public bool realTime = false;
 
 	private void Awake()
 	{
 		thisRB = this.GetComponent<Rigidbody2D>();
+		ghost = GameObject.FindWithTag("Ghost");
 	}
 
 	private void Update()
 	{
 		if (firstColl)
 		{
-			thisRB.velocity *= .92f;
+			thisRB.drag = 20;
 		}
 		
 		//this.GetComponent<Rigidbody2D>().velocity *= 56 * Time.deltaTime;
@@ -43,6 +45,12 @@ public class standardBullet : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		firstColl = true;
-		thisRB.velocity *= .08f;
+		thisRB.velocity *= .5f;
+
+		if (other.gameObject.tag == "Player")
+		{
+			ghost.GetComponent<GhostPlayer>().haveBullet = true;
+			Destroy(this.gameObject);
+		}
 	}
 }

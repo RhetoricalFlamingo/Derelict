@@ -43,6 +43,11 @@ public class gruntAI : MonoBehaviour
 		{
 			this.transform.position = Vector2.MoveTowards(this.transform.position, targetChar.transform.position,
 				moveSpeed * Time.deltaTime);
+
+			if (ID == "spinShot")
+			{
+				this.GetComponent<spinEnemy>().isActive = true;
+			}
 		}
 	}
 	

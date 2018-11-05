@@ -23,7 +23,7 @@ public class GhostPlayer : MonoBehaviour
 	public float chargeMax = 0;
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
-	bool reloaded = true;
+	public bool haveBullet = true;
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
@@ -51,7 +51,7 @@ public class GhostPlayer : MonoBehaviour
 		distToTargetChar();
 		Reposess();
 		Rotation();
-		CameraMove();
+		//CameraMove();
 		Shoot();
 	}
 
@@ -120,7 +120,7 @@ public class GhostPlayer : MonoBehaviour
 
 	void Shoot()	//Fire weapon of currently-controlled character
 	{
-		if (Input.GetButton("R1_C2") && reloaded && atTarget)
+		if (Input.GetButton("R1_C2") && haveBullet && atTarget)
 		{
 			chargeI += Time.deltaTime * 5;
 			playerChars[targetHost].transform.position +=
@@ -132,20 +132,20 @@ public class GhostPlayer : MonoBehaviour
 			}
 		}
 
-		if (chargeI == chargeMax && atTarget)
+		if (Input.GetButtonUp("R1_C2") && atTarget)
 		{
 			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 8), Quaternion.identity);
+			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 10), Quaternion.identity);
 			shotInstance.transform.localScale = Vector2.one * chargeI;
-			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
+			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
 
 			chargeI = 0;
-			reloaded = false;
+			haveBullet = false;
 		}
 
 		if (Input.GetButtonDown("R1_C2"))
 		{
-			reloaded = true;
+			//haveBullet = true;
 		}
 	}
 

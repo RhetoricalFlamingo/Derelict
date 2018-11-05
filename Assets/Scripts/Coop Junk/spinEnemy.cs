@@ -6,6 +6,7 @@ public class spinEnemy : MonoBehaviour {
 	
 	[Header("GENERAL")]
 	public float rotationSpeed;
+	public bool isActive = false;
 	
 	[Header("SHOT")]
 	//public int shotDamage;
@@ -26,16 +27,19 @@ public class spinEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		t.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-
-		if (Time.time > shotTimer + shotDelay)
-		{
-			GameObject b = (GameObject)Instantiate(bulletInstance,t.position,t.rotation);
-			//b.GetComponent<shooterBullet>().setOwner(this);
-			b.GetComponent<shooterBullet>().speed = shotSpeed;
+		if (isActive)	{
 			
+			t.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
 
-			shotTimer = Time.time;
+			if (Time.time > shotTimer + shotDelay)
+			{
+				GameObject b = (GameObject) Instantiate(bulletInstance, t.position, t.rotation);
+				//b.GetComponent<shooterBullet>().setOwner(this);
+				b.GetComponent<shooterBullet>().speed = shotSpeed;
+
+
+				shotTimer = Time.time;
+			}
 		}
 	}
 }

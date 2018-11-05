@@ -64,7 +64,7 @@ public class invinciMech_Script : MonoBehaviour
 			}
 			else
 			{
-				Destroy(other.gameObject);
+				//Destroy(other.gameObject);
 			}
 		}
 	}

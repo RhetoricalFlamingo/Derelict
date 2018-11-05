@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   lifeEnd: 2.5
+  ghost: {fileID: 0}
   turnManager: {fileID: 0}
   realTime: 0
 --- !u!212 &212919585317620804

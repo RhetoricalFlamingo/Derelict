@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 50
   isActive: 0
-  shotSpeed: 60
+  shotSpeed: 42
   shotDelay: 0.42
   bulletInstance: {fileID: 1802708576519680, guid: 310860e739ffa2347958a07308556994,
     type: 2}

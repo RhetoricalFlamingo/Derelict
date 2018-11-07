@@ -24,6 +24,10 @@ public class GhostPlayer : MonoBehaviour
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
 	public bool haveBullet = true;
+	
+	private ParticleSystem thisPS;
+	public Material purpleMat;
+	public Material redMat;
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
@@ -41,6 +45,7 @@ public class GhostPlayer : MonoBehaviour
 	{
 		camRB = mainCam.GetComponent<Rigidbody2D>();
 		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
+		thisPS = this.GetComponent<ParticleSystem>();
 		
 		mm_PlayerSpeed = camSpeed / 4.5f;
 	}
@@ -122,9 +127,14 @@ public class GhostPlayer : MonoBehaviour
 	{
 		if (Input.GetButton("R1_C2") && haveBullet && atTarget)
 		{
-			chargeI += Time.deltaTime * 5;
+			var thisEmission = thisPS.emission;
+			thisEmission.rateOverTime = 40;
+			thisPS.GetComponent<Renderer>().material = redMat;
+			
 			playerChars[targetHost].transform.position +=
-				new Vector3(Random.Range(-chargeI / 5, chargeI / 5), Random.Range(-chargeI / 5, chargeI / 5), 0f);
+				new Vector3(Random.Range(-chargeI / 6, chargeI / 6), Random.Range(-chargeI / 6, chargeI / 6), 0f);
+			
+			chargeI += Time.deltaTime * 5;
 			
 			if (chargeI >= chargeMax)
 			{
@@ -135,17 +145,16 @@ public class GhostPlayer : MonoBehaviour
 		if (Input.GetButtonUp("R1_C2") && atTarget)
 		{
 			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 10), Quaternion.identity);
+			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
 			shotInstance.transform.localScale = Vector2.one * chargeI;
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
 
+			var thisEmission = thisPS.emission;
+			thisEmission.rateOverTime = 28;
+			thisPS.GetComponent<Renderer>().material = purpleMat;
+				
 			chargeI = 0;
 			haveBullet = false;
-		}
-
-		if (Input.GetButtonDown("R1_C2"))
-		{
-			//haveBullet = true;
 		}
 	}
 

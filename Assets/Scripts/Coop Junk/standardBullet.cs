@@ -28,10 +28,10 @@ public class standardBullet : MonoBehaviour
 	{
 		if (firstColl)
 		{
-			thisRB.drag = 20;
+			thisRB.drag = 17;
 		}
 		
-		//this.GetComponent<Rigidbody2D>().velocity *= 56 * Time.deltaTime;
+		this.GetComponent<Rigidbody2D>().velocity *= .9999f;
 		
 		/*lifeI += Time.deltaTime;
 

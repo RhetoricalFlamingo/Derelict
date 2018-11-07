@@ -16,9 +16,9 @@ public class ObstacleScript : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "playerProj" || other.gameObject.tag == "enemyProj")
+		if (other.gameObject.tag == "enemyProj")
 		{
-			//Destroy(other.gameObject);
+			Destroy(other.gameObject);
 			//Debug.Log("Bullet Delete");
 		}
 	}

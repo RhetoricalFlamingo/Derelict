@@ -82,7 +82,7 @@ public class MovePlayer : MonoBehaviour
 		{
 			dashDelayI[char_Index] += Time.deltaTime;
 
-			if (dashDelayI[char_Index] > .3f)
+			if (dashDelayI[char_Index] > .25f)
 			{
 				moveImpulse[char_Index] -= dashSpeed;
 				dashDelayI[char_Index] = 0;
@@ -96,7 +96,7 @@ public class MovePlayer : MonoBehaviour
 		{
 			dashDelayI[char_Index] += Time.deltaTime;
 
-			if (dashDelayI[char_Index] > .45f)
+			if (dashDelayI[char_Index] > .38f)
 			{
 				dashDelayI[char_Index] = 0;
 

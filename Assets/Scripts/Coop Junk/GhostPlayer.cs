@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class GhostPlayer : MonoBehaviour
@@ -12,8 +13,8 @@ public class GhostPlayer : MonoBehaviour
 	public int targetHost = 0;
 	private int otherHost = 0;
 	private bool atTarget = false;
-	public float repoSpeed = 0;
-	private float modRepoSpeed = 0;
+	[FormerlySerializedAs("repoSpeed")] public float throwSpeed = 0;
+	private float modThrowSpeed = 0;
 
 	private float rotaterTheta = 0;
 	public float rotSpeed = 0;
@@ -23,7 +24,7 @@ public class GhostPlayer : MonoBehaviour
 	public float chargeMax = 0;
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
-	public bool haveBullet = true;
+	[FormerlySerializedAs("haveBullet")] public bool haveGun = true;
 	
 	private ParticleSystem thisPS;
 	public Material purpleMat;
@@ -54,7 +55,7 @@ public class GhostPlayer : MonoBehaviour
 	void Update ()
 	{
 		distToTargetChar();
-		Reposess();
+		Throw();
 		Rotation();
 		//CameraMove();
 		Shoot();
@@ -85,9 +86,9 @@ public class GhostPlayer : MonoBehaviour
 			otherHost = 0;
 	}	//Check distance to targeted character (better than physics check rn)
 
-	void Reposess()		//Change current character to control
+	void Throw()		//Change current character to control
 	{
-		if (Input.GetButtonDown("L1_C2") && atTarget)
+		/*if (Input.GetButtonDown("L1_C2") && atTarget)
 		{
 			GameManager.GetComponent<TimeManager>().inSloMo = true;
 			
@@ -95,37 +96,18 @@ public class GhostPlayer : MonoBehaviour
 				targetHost = 1;
 			else targetHost = 0;
 
-			modRepoSpeed = repoSpeed;
+			modThrowSpeed = throwSpeed;
 		}
 		
-		this.transform.position = Vector3.MoveTowards(transform.position, playerChars[targetHost].transform.position, modRepoSpeed * Time.deltaTime);
+		this.transform.position = Vector3.MoveTowards(transform.position, playerChars[targetHost].transform.position, modThrowSpeed * Time.deltaTime);
 
-		if (modRepoSpeed < 1000)
+		if (modThrowSpeed < 1000)
 		{
-			modRepoSpeed += 350 * Time.deltaTime;
+			modThrowSpeed += 350 * Time.deltaTime;
 		}
-	}
-
-	void Rotation()		//Rotate currently-controlled character
-	{
-		if (atTarget && (Input.GetAxis("RVertical_C2") != 0 || Input.GetAxis("RHorizontal_C2") != 0))
-		{
-			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
-			playerChars[targetHost].transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
-			
-			lastRotation[0] = playerChars[0].transform.rotation;
-			lastRotation[1] = playerChars[1].transform.rotation;
-			Debug.Log("atTargetRotation");
-		}
-		else
-		{
-			playerChars[otherHost].transform.rotation = lastRotation[otherHost];
-		}
-	}
-
-	void Shoot()	//Fire weapon of currently-controlled character
-	{
-		if (Input.GetButton("R1_C2") && haveBullet && atTarget)
+		*/
+		
+		if (Input.GetButton("R1_C2") && haveGun && atTarget)
 		{
 			var thisEmission = thisPS.emission;
 			thisEmission.rateOverTime = 40;
@@ -146,7 +128,7 @@ public class GhostPlayer : MonoBehaviour
 		{
 			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
-			shotInstance.transform.localScale = Vector2.one * chargeI;
+			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
 
 			var thisEmission = thisPS.emission;
@@ -154,7 +136,59 @@ public class GhostPlayer : MonoBehaviour
 			thisPS.GetComponent<Renderer>().material = purpleMat;
 				
 			chargeI = 0;
-			haveBullet = false;
+			haveGun = false;
+		}
+	}
+
+	void Rotation()		//Rotate currently-controlled character
+	{
+		if (atTarget && (Input.GetAxis("RVertical_C2") != 0 || Input.GetAxis("RHorizontal_C2") != 0))
+		{
+			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
+			playerChars[targetHost].transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
+			
+			lastRotation[0] = playerChars[0].transform.rotation;
+			lastRotation[1] = playerChars[1].transform.rotation;
+			Debug.Log("atTargetRotation");
+		}
+		else
+		{
+			playerChars[otherHost].transform.rotation = lastRotation[otherHost];
+		}
+	}
+
+	void Shoot()	//Fire weapon from currently-controlled character
+	{
+		if (Input.GetButton("R1_C2") && haveGun && atTarget)
+		{
+			var thisEmission = thisPS.emission;
+			thisEmission.rateOverTime = 40;
+			thisPS.GetComponent<Renderer>().material = redMat;
+			
+			playerChars[targetHost].transform.position +=
+				new Vector3(Random.Range(-chargeI / 6, chargeI / 6), Random.Range(-chargeI / 6, chargeI / 6), 0f);
+			
+			chargeI += Time.deltaTime * 5;
+			
+			if (chargeI >= chargeMax)
+			{
+				chargeI = chargeMax;
+			}
+		}
+
+		if (Input.GetButtonUp("R1_C2") && atTarget)
+		{
+			Rigidbody2D shotInstance;
+			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
+			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
+			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
+
+			var thisEmission = thisPS.emission;
+			thisEmission.rateOverTime = 28;
+			thisPS.GetComponent<Renderer>().material = purpleMat;
+				
+			chargeI = 0;
+			haveGun = false;
 		}
 	}
 

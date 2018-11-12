@@ -22,9 +22,12 @@ public class GhostPlayer : MonoBehaviour
 
 	private float chargeI = 0;
 	public float chargeMax = 0;
+	[FormerlySerializedAs("haveBullet")] public bool isHeld = true;
+	private Rigidbody2D thisRB;
+	
 	public Rigidbody2D proj;
 	public float projSpeed = 0;
-	[FormerlySerializedAs("haveBullet")] public bool haveGun = true;
+	private bool lastFrameTrigger = false;
 	
 	private ParticleSystem thisPS;
 	public Material purpleMat;
@@ -37,7 +40,7 @@ public class GhostPlayer : MonoBehaviour
 	public float camSpeed = 0;
 	private float mm_PlayerSpeed = 0;
 
-	public GameObject GameManager;
+	public GameObject PlayerManager;
 	private bool inSloMo = false;
 	private float smI = 0;
 	
@@ -47,6 +50,7 @@ public class GhostPlayer : MonoBehaviour
 		camRB = mainCam.GetComponent<Rigidbody2D>();
 		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		thisPS = this.GetComponent<ParticleSystem>();
+		thisRB = this.GetComponent<Rigidbody2D>();
 		
 		mm_PlayerSpeed = camSpeed / 4.5f;
 	}
@@ -54,39 +58,47 @@ public class GhostPlayer : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		distToTargetChar();
+		LockToHolder();
 		Throw();
 		Rotation();
 		//CameraMove();
 		Shoot();
 	}
 
-	/*private void OnCollisionEnter2D(Collision2D other)
+	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "playerProj")
+		if (other.gameObject.tag == "playerEmpty")
 		{
-			reloading = false;
-			shootI = 0;
+			PlayerDistCheck();
+			PlayerManager.GetComponent<MovePlayer>().overGun = true;
 		}
-	}*/
-
-	void distToTargetChar()
+	}
+	
+	private void OnTriggerExit2D(Collider2D other)
 	{
-		if (Vector2.Distance(transform.position, playerChars[targetHost].transform.position) < 8f)
+		if (other.gameObject.tag == "playerEmpty")
 		{
-			atTarget = true;
-			Debug.Log("atTarget");
+			PlayerManager.GetComponent<MovePlayer>().overGun = false;
 		}
-		else atTarget = false;
+	}
+	
+//********************CUSTOM FUNCTIONS*******************************************************************************
 
-		if (targetHost == 0)
-			otherHost = 1;
-		
-		if (targetHost == 1)
-			otherHost = 0;
-	}	//Check distance to targeted character (better than physics check rn)
+	void LockToHolder()		//Check distance to targeted character (better than physics check rn)
+	{
+		if (isHeld)
+		{
+			if (targetHost == 0)
+				otherHost = 1;
 
-	void Throw()		//Change current character to control
+			else if (targetHost == 1)
+				otherHost = 0;
+
+			this.transform.position = playerChars[targetHost].transform.position;
+		}
+	}
+
+	void Throw()		//Throw self from current holder
 	{
 		/*if (Input.GetButtonDown("L1_C2") && atTarget)
 		{
@@ -107,16 +119,16 @@ public class GhostPlayer : MonoBehaviour
 		}
 		*/
 		
-		if (Input.GetButton("R1_C2") && haveGun && atTarget)
+		if (Input.GetButton("R1_C2") && isHeld)
 		{
 			var thisEmission = thisPS.emission;
 			thisEmission.rateOverTime = 40;
 			thisPS.GetComponent<Renderer>().material = redMat;
 			
 			playerChars[targetHost].transform.position +=
-				new Vector3(Random.Range(-chargeI / 6, chargeI / 6), Random.Range(-chargeI / 6, chargeI / 6), 0f);
+				new Vector3(Random.Range(-chargeI / 10, chargeI / 10), Random.Range(-chargeI / 10, chargeI / 10), 0f);
 			
-			chargeI += Time.deltaTime * 5;
+			chargeI += Time.deltaTime * 7;
 			
 			if (chargeI >= chargeMax)
 			{
@@ -124,25 +136,22 @@ public class GhostPlayer : MonoBehaviour
 			}
 		}
 
-		if (Input.GetButtonUp("R1_C2") && atTarget)
+		if (Input.GetButtonUp("R1_C2") && isHeld)
 		{
-			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
-			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
-			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
+			thisRB.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
 
 			var thisEmission = thisPS.emission;
 			thisEmission.rateOverTime = 28;
 			thisPS.GetComponent<Renderer>().material = purpleMat;
 				
 			chargeI = 0;
-			haveGun = false;
+			isHeld = false;
 		}
 	}
 
 	void Rotation()		//Rotate currently-controlled character
 	{
-		if (atTarget && (Input.GetAxis("RVertical_C2") != 0 || Input.GetAxis("RHorizontal_C2") != 0))
+		if (isHeld && (Input.GetAxis("RVertical_C2") != 0 || Input.GetAxis("RHorizontal_C2") != 0))
 		{
 			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
 			playerChars[targetHost].transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
@@ -159,36 +168,21 @@ public class GhostPlayer : MonoBehaviour
 
 	void Shoot()	//Fire weapon from currently-controlled character
 	{
-		if (Input.GetButton("R1_C2") && haveGun && atTarget)
+		if (isHeld && !lastFrameTrigger && Input.GetAxis("R2_C2") >= .8f)
 		{
-			var thisEmission = thisPS.emission;
-			thisEmission.rateOverTime = 40;
-			thisPS.GetComponent<Renderer>().material = redMat;
+			lastFrameTrigger = true;
 			
-			playerChars[targetHost].transform.position +=
-				new Vector3(Random.Range(-chargeI / 6, chargeI / 6), Random.Range(-chargeI / 6, chargeI / 6), 0f);
-			
-			chargeI += Time.deltaTime * 5;
-			
-			if (chargeI >= chargeMax)
-			{
-				chargeI = chargeMax;
-			}
-		}
-
-		if (Input.GetButtonUp("R1_C2") && atTarget)
-		{
 			Rigidbody2D shotInstance;
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
 			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
-			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed * chargeI);
+			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
+			
+			Debug.Log("shoot");
+		}
 
-			var thisEmission = thisPS.emission;
-			thisEmission.rateOverTime = 28;
-			thisPS.GetComponent<Renderer>().material = purpleMat;
-				
-			chargeI = 0;
-			haveGun = false;
+		if (isHeld && Input.GetAxis("R2_C2") < .5f && lastFrameTrigger)
+		{
+			lastFrameTrigger = false;
 		}
 	}
 
@@ -201,7 +195,7 @@ public class GhostPlayer : MonoBehaviour
 			(mm_PlayerSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 
-	public void sloMo()
+	public void sloMo()		//slow game time down (often called from other scripts)
 	{
 		if (Time.timeScale == 1)
 		{
@@ -218,6 +212,21 @@ public class GhostPlayer : MonoBehaviour
 				inSloMo = false;
 				smI = 0;
 			}
+		}
+	}
+
+	void PlayerDistCheck()	//Check which player is closer to this gun
+	{
+		float dist0ToPlayer = Vector2.Distance(this.transform.position, playerChars[0].transform.position);
+		float dist1ToPlayer = Vector2.Distance(this.transform.position, playerChars[1].transform.position);
+
+		if (dist0ToPlayer < dist1ToPlayer)
+		{
+			targetHost = 0;
+		}
+		else
+		{
+			targetHost = 1;
 		}
 	}
 }

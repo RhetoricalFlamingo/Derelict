@@ -49,7 +49,7 @@ public class standardBullet : MonoBehaviour
 
 		if (other.gameObject.tag == "Player")
 		{
-			ghost.GetComponent<GhostPlayer>().haveGun = true;
+			ghost.GetComponent<GhostPlayer>().isHeld = true;
 			Destroy(this.gameObject);
 		}
 	}

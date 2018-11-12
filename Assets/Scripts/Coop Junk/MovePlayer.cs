@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class MovePlayer : MonoBehaviour
 	private bool[] cooling_dash = new bool[2];
 	private float[] dashDelayI = new float[2];
 
-	public GameObject ghost;
+	[FormerlySerializedAs("ghost")] public GameObject gun;
+	public bool overGun = false;
 	
 	public GameObject[] chars = new GameObject[2];
 	public Rigidbody2D[] playerRBs = new Rigidbody2D[2];
@@ -23,7 +25,7 @@ public class MovePlayer : MonoBehaviour
 	public GameObject mainCam;
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		for (int i = 0; i < chars.Length; i++)
 		{
 			playerRBs[i] = chars[i].GetComponent<Rigidbody2D>();
@@ -41,7 +43,11 @@ public class MovePlayer : MonoBehaviour
 		Move(1);
 		Dash(0);
 		Dash(1);
+		
+		PickUpGun();
 	}
+
+//**********CUSTOM FUNCTIONS******************************************************************************************
 
 	void Move(int char_Index)	//MOVE playerCharacters
 	{
@@ -113,9 +119,17 @@ public class MovePlayer : MonoBehaviour
 			chars[0].transform.position = chars[1].transform.position;
 			chars[1].transform.position = char0Pos;
 
-			if (ghost.GetComponent<GhostPlayer>().targetHost == 0)
-				ghost.GetComponent<GhostPlayer>().targetHost = 1;
-			else ghost.GetComponent<GhostPlayer>().targetHost = 0;
+			if (gun.GetComponent<GhostPlayer>().targetHost == 0)
+				gun.GetComponent<GhostPlayer>().targetHost = 1;
+			else gun.GetComponent<GhostPlayer>().targetHost = 0;
+		}
+	}
+
+	public void PickUpGun()		//When a playerCharacter is colliding with the GUN, button input picks it up
+	{
+		if (overGun && Input.GetButton("Cross"))
+		{
+			gun.GetComponent<GhostPlayer>().isHeld = true;
 		}
 	}
 }

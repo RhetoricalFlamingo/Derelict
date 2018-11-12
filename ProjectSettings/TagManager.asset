@@ -4,18 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - turnOption
   - soundWave
   - TM
-  - waypointAimer
-  - partialWaypoint
-  - placedWaypoint0
-  - placedWaypoint1
-  - placedWaypoint2
   - playerProj
-  - compProj
   - enemyProj
   - Ghost
+  - playerEmpty
   layers:
   - Default
   - TransparentFX
@@ -29,8 +23,8 @@ TagManager:
   - EnemyProjs
   - ScreenSpace_Border
   - PlayerBody
-  - 
-  - 
+  - GUN
+  - PlayerEmpty
   - 
   - 
   - 

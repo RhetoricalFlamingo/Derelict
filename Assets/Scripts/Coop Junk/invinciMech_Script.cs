@@ -48,7 +48,7 @@ public class invinciMech_Script : MonoBehaviour
 	
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.tag == "Ghost")
+		if (other.gameObject.tag == "Ghost" && !ghost.GetComponent<GhostPlayer>().isHeld)
 		{
 			stunned = true;
 			GameManager.GetComponent<TimeManager>().inSloMo = true;

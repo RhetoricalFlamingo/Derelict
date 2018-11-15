@@ -28,18 +28,16 @@ public class standardBullet : MonoBehaviour
 	{
 		if (firstColl)
 		{
-			thisRB.drag = 17;
+			thisRB.drag = 7;
 		}
 		
-		this.GetComponent<Rigidbody2D>().velocity *= .9999f;
-		
-		/*lifeI += Time.deltaTime;
+		lifeI += Time.deltaTime;
 
 		if (lifeI >= lifeEnd)
 		{
 			Destroy(this.gameObject);
 			//Debug.Log("bulletDestroyed");
-		}*/
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)

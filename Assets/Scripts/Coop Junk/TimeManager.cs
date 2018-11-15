@@ -8,7 +8,8 @@ public class TimeManager : MonoBehaviour
 	public bool inSloMo = false;
 	public float smI = 0;
 
-	private float fracTime = .06f;
+	public float fracTime = .06f;
+	public float sloDur = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,22 +20,22 @@ public class TimeManager : MonoBehaviour
 	void Update () {
 		if (inSloMo)
 		{
-			sloMo();
+			sloMo(sloDur);
 		}
 	}
 	
-	public void sloMo()
+	public void sloMo(float dur)	//Activate slow motion
 	{
 		if (Time.timeScale == 1)
 		{
 			Time.timeScale = fracTime;
 		}
 
-		if (Time.timeScale == fracTime)
+		if (Time.timeScale == fracTime)		//increment towards ending slowmotion
 		{
 			smI += Time.unscaledDeltaTime;
 
-			if (smI > .15f)
+			if (smI > dur)
 			{
 				Time.timeScale = 1f;
 				inSloMo = false;

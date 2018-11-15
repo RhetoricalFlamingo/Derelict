@@ -14,8 +14,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.25
-    sensitivity: 0.9
+    dead: 0.08
+    sensitivity: 1
     snap: 0
     invert: 0
     type: 2
@@ -30,8 +30,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.25
-    sensitivity: 0.9
+    dead: 0.08
+    sensitivity: 1
     snap: 0
     invert: 0
     type: 2
@@ -46,8 +46,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.25
-    sensitivity: 0.9
+    dead: 0.08
+    sensitivity: 1
     snap: 0
     invert: 1
     type: 2
@@ -62,8 +62,8 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.25
-    sensitivity: 0.9
+    dead: 0.08
+    sensitivity: 1
     snap: 0
     invert: 0
     type: 2
@@ -78,7 +78,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.12
+    dead: 0.08
     sensitivity: 1
     snap: 0
     invert: 0
@@ -94,7 +94,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.12
+    dead: 0.08
     sensitivity: 1
     snap: 0
     invert: 0
@@ -110,7 +110,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.12
+    dead: 0.08
     sensitivity: 1
     snap: 0
     invert: 1
@@ -126,7 +126,7 @@ InputManager:
     altNegativeButton: 
     altPositiveButton: 
     gravity: 0
-    dead: 0.12
+    dead: 0.08
     sensitivity: 1
     snap: 0
     invert: 1
@@ -483,5 +483,69 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
+    axis: 7
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: L3
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 10
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.001
+    sensitivity: 100
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 7
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: L3_C2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 10
+    altNegativeButton: 
+    altPositiveButton: joystick 3 button 10
+    gravity: 0
+    dead: 0.001
+    sensitivity: 100
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 7
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: R3
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 11
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0.001
+    sensitivity: 100
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 7
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: R3_C2
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 11
+    altNegativeButton: 
+    altPositiveButton: joystick 3 button 11
+    gravity: 0
+    dead: 0.001
+    sensitivity: 100
+    snap: 0
+    invert: 0
+    type: 0
     axis: 7
     joyNum: 2

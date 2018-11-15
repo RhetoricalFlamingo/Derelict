@@ -25,6 +25,7 @@ public class invinciMech_Script : MonoBehaviour
 	void Awake ()
 	{
 		currentHP = maxHP;
+		//ghost = GameObject.FindGameObjectWithTag("Ghost");
 	}
 	
 	// Update is called once per frame
@@ -48,11 +49,13 @@ public class invinciMech_Script : MonoBehaviour
 	
 	private void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.tag == "Ghost" && !ghost.GetComponent<GhostPlayer>().isHeld)
+		if (other.gameObject.tag == "Ghost" && !ghost.GetComponent<GhostPlayer>().isHeld && ghost.GetComponent<Rigidbody2D>().velocity.magnitude > 2)
 		{
 			stunned = true;
 			GameManager.GetComponent<TimeManager>().inSloMo = true;
 			GameManager.GetComponent<TimeManager>().smI = 0;
+			GameManager.GetComponent<TimeManager>().sloDur = .15f;
+			GameManager.GetComponent<TimeManager>().fracTime = .06f;
 			//Debug.Log("stunned");
 		}
 		
@@ -62,10 +65,8 @@ public class invinciMech_Script : MonoBehaviour
 			{
 				currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
 			}
-			else
-			{
-				//Destroy(other.gameObject);
-			}
+			
+				Destroy(other.gameObject);
 		}
 	}
 	
@@ -111,6 +112,6 @@ public class invinciMech_Script : MonoBehaviour
 			this.GetComponent<SpriteRenderer>().color = new Vector4(255, 0, 152, 255);
 		}
 		
-		ghost.GetComponent<GhostPlayer>().sloMo();
+		//ghost.GetComponent<GhostPlayer>().sloMo(.2f);
 	}
 }

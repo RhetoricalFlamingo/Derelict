@@ -41,6 +41,7 @@ public class GhostPlayer : MonoBehaviour
 	private float mm_PlayerSpeed = 0;
 
 	public GameObject PlayerManager;
+	public GameObject GameManager;
 	private bool inSloMo = false;
 	private float smI = 0;
 	
@@ -63,6 +64,17 @@ public class GhostPlayer : MonoBehaviour
 		Rotation();
 		//CameraMove();
 		Shoot();
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "playerSlo" && !isHeld && thisRB.velocity.magnitude > 6)		//Enter slow motion when thrown gun is near player
+		{
+			GameManager.GetComponent<TimeManager>().inSloMo = true;
+			GameManager.GetComponent<TimeManager>().smI = 0;
+			GameManager.GetComponent<TimeManager>().sloDur = .45f;
+			GameManager.GetComponent<TimeManager>().fracTime = .08f;
+		}
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
@@ -176,8 +188,10 @@ public class GhostPlayer : MonoBehaviour
 			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
 			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
 			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
+
+			mainCam.GetComponent<cameraController>().shaking = true;
 			
-			Debug.Log("shoot");
+			//Debug.Log("shoot");
 		}
 
 		if (isHeld && Input.GetAxis("R2_C2") < .5f && lastFrameTrigger)
@@ -195,7 +209,7 @@ public class GhostPlayer : MonoBehaviour
 			(mm_PlayerSpeed * Input.GetAxis("LVertical_C2"))));
 	}
 
-	public void sloMo()		//slow game time down (often called from other scripts)
+	public void sloMo(float dur)		//slow game time down (often called from other scripts)
 	{
 		if (Time.timeScale == 1)
 		{
@@ -206,7 +220,7 @@ public class GhostPlayer : MonoBehaviour
 		{
 			smI += Time.unscaledDeltaTime;
 
-			if (smI > .2f)
+			if (smI > dur)
 			{
 				Time.timeScale = 1f;
 				inSloMo = false;

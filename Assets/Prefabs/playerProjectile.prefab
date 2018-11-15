@@ -203,7 +203,7 @@ TrailRenderer:
     textureMode: 0
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
 --- !u!114 &114957055768550422
 MonoBehaviour:
@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5325d51be7f440b45b77ea82ecd74fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  lifeEnd: 0
+  damage: 4
+  lifeEnd: 4
   ghost: {fileID: 0}
   turnManager: {fileID: 0}
   realTime: 0

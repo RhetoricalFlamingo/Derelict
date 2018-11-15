@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class MovePlayer : MonoBehaviour
@@ -15,6 +17,12 @@ public class MovePlayer : MonoBehaviour
 	private bool[] dashing_dash = new bool[2];
 	private bool[] cooling_dash = new bool[2];
 	private float[] dashDelayI = new float[2];
+	
+	public float[] currentHealth = new float[2];
+	public float[] maxHealth = new float[2];
+	private bool[] dying = new bool[2];
+	public float[] deathSpeed = new float[2];
+	private float[] deathI = new float[2];
 
 	[FormerlySerializedAs("ghost")] public GameObject gun;
 	public bool overGun = false;
@@ -29,6 +37,8 @@ public class MovePlayer : MonoBehaviour
 		for (int i = 0; i < chars.Length; i++)
 		{
 			playerRBs[i] = chars[i].GetComponent<Rigidbody2D>();
+			currentHealth[i] = maxHealth[i];
+			dying[i] = false;
 		}
 	}
 	
@@ -43,6 +53,8 @@ public class MovePlayer : MonoBehaviour
 		Move(1);
 		Dash(0);
 		Dash(1);
+		HealthMonitor(0);
+		HealthMonitor(1);
 		
 		PickUpGun();
 	}
@@ -127,9 +139,28 @@ public class MovePlayer : MonoBehaviour
 
 	public void PickUpGun()		//When a playerCharacter is colliding with the GUN, button input picks it up
 	{
-		if (overGun && Input.GetButton("Cross"))
+		if (overGun && (Input.GetButton("R3") || Input.GetButton("L3")))
 		{
 			gun.GetComponent<GhostPlayer>().isHeld = true;
+		}
+	}
+
+	void HealthMonitor(int char_Index)
+	{
+		if (currentHealth[char_Index] <= 0)
+		{
+			dying[char_Index] = true;
+
+			if (dying[char_Index])
+			{
+				moveImpulse[char_Index] = deathSpeed[char_Index];
+				deathI[char_Index] += Time.deltaTime;
+
+				if (deathI[char_Index] >= 10)
+				{
+					SceneManager.LoadScene("coopTestScene");
+				}
+			}
 		}
 	}
 }

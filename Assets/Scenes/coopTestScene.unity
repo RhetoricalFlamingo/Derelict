@@ -621,7 +621,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -1192,6 +1192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inSloMo: 0
   smI: 0
+  fracTime: 0.06
+  sloDur: 0.15
 --- !u!4 &45483010
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,7 +1985,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -2319,7 +2321,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -2726,7 +2728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &190315057
 Transform:
   m_ObjectHideFlags: 0
@@ -4293,6 +4295,7 @@ Transform:
   m_Children:
   - {fileID: 1298777025}
   - {fileID: 53665997}
+  - {fileID: 1137650644}
   m_Father: {fileID: 1403702025}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4312,7 +4315,7 @@ Rigidbody2D:
   m_AngularDrag: 13
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -5168,7 +5171,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -7639,7 +7642,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -8466,7 +8469,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -8713,7 +8716,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -8847,7 +8850,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -8981,7 +8984,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -10374,7 +10377,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -11162,7 +11165,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -11296,7 +11299,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -12637,7 +12640,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -14084,6 +14087,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &966400531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966400532}
+  - component: {fileID: 966400533}
+  m_Layer: 14
+  m_Name: GunTrigger
+  m_TagString: Ghost
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966400532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 966400531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1032279928}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &966400533
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 966400531}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7.5
 --- !u!1 &966828767
 GameObject:
   m_ObjectHideFlags: 0
@@ -19353,7 +19400,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.709862, y: 16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 966400532}
   m_Father: {fileID: 2070343810}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19377,13 +19425,14 @@ MonoBehaviour:
   chargeMax: 2.75
   isHeld: 1
   proj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
-  projSpeed: 300
+  projSpeed: 410
   purpleMat: {fileID: 2100000, guid: 6cd2b66524393d74e97b8324f3a4b6a9, type: 2}
   redMat: {fileID: 2100000, guid: f843e9841456c6b44acc93ef535d0d2d, type: 2}
   mainCam: {fileID: 1993952080}
   mm_Player: {fileID: 1632111145}
   camSpeed: 38
   PlayerManager: {fileID: 1403702024}
+  GameManager: {fileID: 45483008}
 --- !u!96 &1032279930
 TrailRenderer:
   serializedVersion: 2
@@ -19491,7 +19540,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1032279925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -19522,12 +19571,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.001
   m_LinearDrag: 5
   m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -20593,6 +20642,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eb1cc02d195654bb61d2839f404408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1137650643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137650644}
+  - component: {fileID: 1137650645}
+  m_Layer: 13
+  m_Name: char0SloField
+  m_TagString: playerSlo
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137650644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137650643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 260246087}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1137650645
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1137650643}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.39}
+  serializedVersion: 2
+  m_Radius: 13.79
 --- !u!1 &1152864743
 GameObject:
   m_ObjectHideFlags: 0
@@ -20893,7 +20986,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -21901,7 +21994,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -22536,7 +22629,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -23027,6 +23120,7 @@ Transform:
   m_Children:
   - {fileID: 1927676036}
   - {fileID: 1084499935}
+  - {fileID: 1416639472}
   m_Father: {fileID: 1403702025}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23046,7 +23140,7 @@ Rigidbody2D:
   m_AngularDrag: 13
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -24407,7 +24501,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -24742,9 +24836,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveImpulse:
-  - 90
-  - 90
+  - 95
+  - 95
   dashSpeed: 280
+  currentHealth:
+  - 0
+  - 0
+  maxHealth:
+  - 20
+  - 20
+  deathSpeed:
+  - 15
+  - 15
   gun: {fileID: 1032279925}
   overGun: 0
   chars:
@@ -25142,6 +25245,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4200068447923144, guid: d1978f24644715c49afb8b28cf29b7b0,
     type: 2}
   m_PrefabInternal: {fileID: 1416487150}
+--- !u!1 &1416639471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1416639472}
+  - component: {fileID: 1416639473}
+  m_Layer: 13
+  m_Name: char1SloField
+  m_TagString: playerSlo
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1416639472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416639471}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 1289959301}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1416639473
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416639471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.39}
+  serializedVersion: 2
+  m_Radius: 13.79
 --- !u!1 &1428898077
 GameObject:
   m_ObjectHideFlags: 0
@@ -25210,7 +25357,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -25888,7 +26035,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -26337,7 +26484,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -27089,7 +27236,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -29943,7 +30090,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -31339,7 +31486,7 @@ MonoBehaviour:
   chars:
   - {fileID: 260246085}
   - {fileID: 1289959299}
-  ghost: {fileID: 0}
+  ghost: {fileID: 1032279925}
   stunned: 0
   stunMax: 4
   active: 0
@@ -31537,6 +31684,8 @@ MonoBehaviour:
   charsDistY: 0
   minCamScale: 110
   maxCamScale: 225
+  firstShake: 0
+  shaking: 0
 --- !u!1 &1995159940
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4418701894948858}
   - component: {fileID: 212919585317620804}
   - component: {fileID: 96986297455156212}
-  - component: {fileID: 114437345009761946}
   - component: {fileID: 58402993281021110}
   - component: {fileID: 50365380319985244}
   - component: {fileID: 58189417017140674}
@@ -209,22 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &114437345009761946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1802708576519680}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5325d51be7f440b45b77ea82ecd74fd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 2
-  lifeEnd: 2.5
-  ghost: {fileID: 0}
-  turnManager: {fileID: 0}
-  realTime: 0
+  contactDamage: 4
 --- !u!212 &212919585317620804
 SpriteRenderer:
   m_ObjectHideFlags: 1

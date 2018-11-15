@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 public class shooterBullet : MonoBehaviour {
 	
 	public float speed;
+	public float contactDamage = 0;
 	
 	private float timer;
 	private float lifetime = 5;
 
 	private Transform t;
+	private GameObject PlayerManager;
 	
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		t = GetComponent<Transform>();
 		
 		timer = Time.time;
+		
+		PlayerManager = GameObject.FindGameObjectWithTag("playerManager");
 	}
 	
 	// Update is called once per frame
@@ -34,10 +38,16 @@ public class shooterBullet : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Destroy(other.gameObject);
-			Debug.Log("playerDead");
-
-			SceneManager.LoadScene("coopTestScene");
+			if (other.gameObject.name == "char0")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[0] -= contactDamage;
+				Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
+			}
+			else if (other.gameObject.name == "char1")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
+				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
+			}
 		}
 	}
 }

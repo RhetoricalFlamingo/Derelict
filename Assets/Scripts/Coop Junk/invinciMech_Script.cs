@@ -8,6 +8,7 @@ public class invinciMech_Script : MonoBehaviour
 	private float currentHP = 0;
 	public float maxHP = 0;
 	public float moveSpeed = 0;
+	public float contactDamage = 0;
 	
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
@@ -20,6 +21,7 @@ public class invinciMech_Script : MonoBehaviour
 	public bool active = false;
 	
 	public GameObject GameManager;
+	public GameObject PlayerManager;
 	
 	// Use this for initialization
 	void Awake ()
@@ -74,14 +76,20 @@ public class invinciMech_Script : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Destroy(other.gameObject);
-			Debug.Log("playerDead");
-
-			SceneManager.LoadScene("coopTestScene");
+			if (other.gameObject.name == "char0")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[0] -= contactDamage;
+				Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
+			}
+			else if (other.gameObject.name == "char1")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
+				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
+			}
 		}
 	}
 
-	private void TargetDistanceCheck()
+	private void TargetDistanceCheck()		//Checks distance and health status of players to determine who (if any) to chase
 	{
 		float dist0 = Vector2.Distance(transform.position, chars[0].transform.position);
 		float dist1 = Vector2.Distance(transform.position, chars[1].transform.position);
@@ -90,16 +98,26 @@ public class invinciMech_Script : MonoBehaviour
 		{
 			targetChar = chars[0];
 			active = true;
+
+			if (PlayerManager.GetComponent<MovePlayer>().dying[0])
+			{
+				targetChar = chars[1];
+			}
 		}
 		else if (dist1 < 150)
 		{
 			targetChar = chars[1];
 			active = true;
+			
+			if (PlayerManager.GetComponent<MovePlayer>().dying[1])
+			{
+				targetChar = chars[0];
+			}
 		}
 		else active = false;
 	}
 
-	private void Stunned()
+	private void Stunned()	//Invinicimechs are stunned for a time when hit by a thrown gun
 	{
 		this.GetComponent<SpriteRenderer>().color = new Vector4(255, 255, 255, 255);
 		

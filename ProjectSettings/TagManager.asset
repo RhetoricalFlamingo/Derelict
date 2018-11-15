@@ -11,6 +11,7 @@ TagManager:
   - Ghost
   - playerEmpty
   - playerSlo
+  - playerManager
   layers:
   - Default
   - TransparentFX

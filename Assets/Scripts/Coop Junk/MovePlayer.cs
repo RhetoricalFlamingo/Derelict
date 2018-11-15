@@ -20,7 +20,7 @@ public class MovePlayer : MonoBehaviour
 	
 	public float[] currentHealth = new float[2];
 	public float[] maxHealth = new float[2];
-	private bool[] dying = new bool[2];
+	public bool[] dying = new bool[2];
 	public float[] deathSpeed = new float[2];
 	private float[] deathI = new float[2];
 
@@ -48,13 +48,14 @@ public class MovePlayer : MonoBehaviour
 		LJOY_Write = new Vector2(Input.GetAxis("LHorizontal"), Input.GetAxis("LVertical"));
 		RJOY_Write = new Vector2(Input.GetAxis("RHorizontal"), Input.GetAxis("RVertical"));
 		
-		//Swap();
 		Move(0);
 		Move(1);
 		Dash(0);
 		Dash(1);
 		HealthMonitor(0);
 		HealthMonitor(1);
+		Revive(0);
+		Revive(1);
 		
 		PickUpGun();
 	}
@@ -123,20 +124,6 @@ public class MovePlayer : MonoBehaviour
 		}
 	}
 
-	void Swap()		//IKARUGA Colour Swap
-	{
-		if (Input.GetButtonDown("R1") || Input.GetButtonDown("L1"))
-		{
-			Vector2 char0Pos = chars[0].transform.position;
-			chars[0].transform.position = chars[1].transform.position;
-			chars[1].transform.position = char0Pos;
-
-			if (gun.GetComponent<GhostPlayer>().targetHost == 0)
-				gun.GetComponent<GhostPlayer>().targetHost = 1;
-			else gun.GetComponent<GhostPlayer>().targetHost = 0;
-		}
-	}
-
 	public void PickUpGun()		//When a playerCharacter is colliding with the GUN, button input picks it up
 	{
 		if (overGun && (Input.GetButton("R3") || Input.GetButton("L3")))
@@ -145,7 +132,7 @@ public class MovePlayer : MonoBehaviour
 		}
 	}
 
-	void HealthMonitor(int char_Index)
+	void HealthMonitor(int char_Index)		//Monitor player's healthbars and enter downed state
 	{
 		if (currentHealth[char_Index] <= 0)
 		{
@@ -153,6 +140,7 @@ public class MovePlayer : MonoBehaviour
 
 			if (dying[char_Index])
 			{
+				Debug.Log("Player" + char_Index + "is Dying");
 				moveImpulse[char_Index] = deathSpeed[char_Index];
 				deathI[char_Index] += Time.deltaTime;
 
@@ -161,6 +149,19 @@ public class MovePlayer : MonoBehaviour
 					SceneManager.LoadScene("coopTestScene");
 				}
 			}
+		}
+	}
+
+	void Revive(int char_Index)		//Allow one moving character to revive the other with an input in proximity
+	{
+		if (dying[char_Index] && (Input.GetButton("L3") || Input.GetButton("R3")) && Vector2.Distance(chars[0].transform.position, chars[1].transform.position) < 12)
+		{
+			dying[char_Index] = false;
+			deathI[char_Index] = 0;
+			moveImpulse[char_Index] = 95f;
+			currentHealth[char_Index] = maxHealth[char_Index];
+			
+			Debug.Log("Res");
 		}
 	}
 }

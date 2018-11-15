@@ -8,6 +8,7 @@ public class gruntAI : MonoBehaviour
 	private float currentHP = 0;
 	public float maxHP = 0;
 	public float moveSpeed = 0;
+	public float contactDamage = 0;
 	
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
@@ -15,6 +16,8 @@ public class gruntAI : MonoBehaviour
 	public string ID = "";
 
 	public bool active = false;
+
+	public GameObject PlayerManager;
 	
 	// Use this for initialization
 	void Awake ()
@@ -64,10 +67,16 @@ public class gruntAI : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Destroy(other.gameObject);
-			Debug.Log("playerDead");
-
-			SceneManager.LoadScene("coopTestScene");
+			if (other.gameObject.name == "char0")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[0] -= contactDamage;
+				Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
+			}
+			else if (other.gameObject.name == "char1")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
+				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
+			}
 		}
 	}
 
@@ -80,11 +89,21 @@ public class gruntAI : MonoBehaviour
 		{
 			targetChar = chars[0];
 			active = true;
+
+			if (PlayerManager.GetComponent<MovePlayer>().dying[0])
+			{
+				targetChar = chars[1];
+			}
 		}
 		else if (dist1 < 150)
 		{
 			targetChar = chars[1];
 			active = true;
+			
+			if (PlayerManager.GetComponent<MovePlayer>().dying[1])
+			{
+				targetChar = chars[0];
+			}
 		}
 		else active = false;
 	}

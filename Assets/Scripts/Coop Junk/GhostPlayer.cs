@@ -49,11 +49,11 @@ public class GhostPlayer : MonoBehaviour
 	void Awake ()
 	{
 		camRB = mainCam.GetComponent<Rigidbody2D>();
-		mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
+		//mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		thisPS = this.GetComponent<ParticleSystem>();
 		thisRB = this.GetComponent<Rigidbody2D>();
 		
-		mm_PlayerSpeed = camSpeed / 4.5f;
+		//mm_PlayerSpeed = camSpeed / 4.5f;
 	}
 	
 	// Update is called once per frame
@@ -112,25 +112,6 @@ public class GhostPlayer : MonoBehaviour
 
 	void Throw()		//Throw self from current holder
 	{
-		/*if (Input.GetButtonDown("L1_C2") && atTarget)
-		{
-			GameManager.GetComponent<TimeManager>().inSloMo = true;
-			
-			if (targetHost == 0)
-				targetHost = 1;
-			else targetHost = 0;
-
-			modThrowSpeed = throwSpeed;
-		}
-		
-		this.transform.position = Vector3.MoveTowards(transform.position, playerChars[targetHost].transform.position, modThrowSpeed * Time.deltaTime);
-
-		if (modThrowSpeed < 1000)
-		{
-			modThrowSpeed += 350 * Time.deltaTime;
-		}
-		*/
-		
 		if (Input.GetButton("R1_C2") && isHeld)
 		{
 			var thisEmission = thisPS.emission;

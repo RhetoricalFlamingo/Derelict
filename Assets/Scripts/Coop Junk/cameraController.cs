@@ -31,7 +31,7 @@ public class cameraController : MonoBehaviour {
 	void Update()
 	{
 		trackPlayers();
-		cameraShake(.12f, .65f);
+		cameraShake(.05f, .45f);
 	}
 
 	void trackPlayers()		//Find midpoint between players, set camera placement equal to that point
@@ -46,6 +46,12 @@ public class cameraController : MonoBehaviour {
 
 	void cameraShake(float dur, float mag)
 	{
+		 //DEBUG SHOOT
+		if (Input.GetKeyDown(KeyCode.Mouse0))	{
+			shaking = true;
+		} 
+		 
+		
 		if (shaking)
 		{
 			Debug.Log("Shake");
@@ -56,7 +62,9 @@ public class cameraController : MonoBehaviour {
 				firstShake = false;
 			}
 
-			this.transform.position += new Vector3(Random.Range(-mag, mag), Random.Range(-mag, mag), 0);
+			Vector3 tarPosition = new Vector3(Random.Range(-mag, mag), Random.Range(-mag, mag), 0);
+			tarPosition += this.transform.position;
+			this.transform.position += (tarPosition - this.transform.position) * .6f;
 
 			shakeI += Time.deltaTime;
 

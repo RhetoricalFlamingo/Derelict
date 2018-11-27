@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class MovePlayer : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MovePlayer : MonoBehaviour
 	
 	public float[] currentHealth = new float[2];
 	public float[] maxHealth = new float[2];
+	public bool[] isInvincible = new bool[2];
 	public bool[] dying = new bool[2];
 	public float[] deathSpeed = new float[2];
 	private float[] deathI = new float[2];
@@ -32,6 +34,8 @@ public class MovePlayer : MonoBehaviour
 
 	public GameObject mainCam;
 	
+	public Image[] HPBars = new Image[2];
+	
 	// Use this for initialization
 	void Awake () {
 		for (int i = 0; i < chars.Length; i++)
@@ -39,6 +43,7 @@ public class MovePlayer : MonoBehaviour
 			playerRBs[i] = chars[i].GetComponent<Rigidbody2D>();
 			currentHealth[i] = maxHealth[i];
 			dying[i] = false;
+			isInvincible[i] = false;
 		}
 	}
 	
@@ -89,11 +94,19 @@ public class MovePlayer : MonoBehaviour
 			{
 				moveImpulse[0] += dashSpeed;
 				dashing_dash[0] = true;
+				chars[0].GetComponent<SpriteRenderer>().color -=Color.black * .3f;
+				chars[0].GetComponent<TrailRenderer>().emitting = true;
+				isInvincible[0] = true;
+				mainCam.GetComponent<cameraController>().shaking = true;
 			}
 			if (char_Index == 1 && Input.GetButtonDown("R1"))
 			{
 				moveImpulse[1] += dashSpeed;
 				dashing_dash[1] = true;
+				chars[1].GetComponent<SpriteRenderer>().color -= Color.black * .3f;
+				chars[1].GetComponent<TrailRenderer>().emitting = true;
+				isInvincible[1] = true;
+				mainCam.GetComponent<cameraController>().shaking = true;
 			}
 		}
 
@@ -101,13 +114,17 @@ public class MovePlayer : MonoBehaviour
 		{
 			dashDelayI[char_Index] += Time.deltaTime;
 
-			if (dashDelayI[char_Index] > .25f)
+			if (dashDelayI[char_Index] > .19f)
 			{
 				moveImpulse[char_Index] -= dashSpeed;
 				dashDelayI[char_Index] = 0;
 
 				dashing_dash[char_Index] = false;
 				cooling_dash[char_Index] = true;
+				
+				chars[char_Index].GetComponent<SpriteRenderer>().color += Color.black * .3f;
+				chars[char_Index].GetComponent<TrailRenderer>().emitting = false;
+				isInvincible[char_Index] = false;
 			}
 		}
 		
@@ -134,6 +151,8 @@ public class MovePlayer : MonoBehaviour
 
 	void HealthMonitor(int char_Index)		//Monitor player's healthbars and enter downed state
 	{
+		HPBars[char_Index].fillAmount = currentHealth[char_Index] / maxHealth[char_Index];
+		
 		if (currentHealth[char_Index] <= 0)
 		{
 			dying[char_Index] = true;
@@ -158,7 +177,7 @@ public class MovePlayer : MonoBehaviour
 		{
 			dying[char_Index] = false;
 			deathI[char_Index] = 0;
-			moveImpulse[char_Index] = 95f;
+			moveImpulse[char_Index] = 60f;
 			currentHealth[char_Index] = maxHealth[char_Index];
 			
 			Debug.Log("Res");

@@ -169,6 +169,7 @@
             </e>
           </e>
         </e>
+        <e p="progressTracker.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AdventureScripts" t="Include">
             <e p="playerController.cs" t="Include" />

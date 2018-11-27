@@ -93,7 +93,7 @@ MonoBehaviour:
   rotationSpeed: 50
   isActive: 0
   shotSpeed: 42
-  shotDelay: 0.42
+  shotDelay: 0.5
   bulletInstance: {fileID: 1802708576519680, guid: 310860e739ffa2347958a07308556994,
     type: 2}
 --- !u!114 &114677341813075376
@@ -109,11 +109,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 20
   moveSpeed: 10
+  contactDamage: 0
   chars:
   - {fileID: 0}
   - {fileID: 0}
   ID: spinShot
   active: 0
+  PlayerManager: {fileID: 0}
 --- !u!212 &212434644329299818
 SpriteRenderer:
   m_ObjectHideFlags: 1

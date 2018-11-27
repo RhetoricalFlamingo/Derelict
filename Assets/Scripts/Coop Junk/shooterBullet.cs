@@ -48,6 +48,8 @@ public class shooterBullet : MonoBehaviour {
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
+			
+			Destroy(this.gameObject);
 		}
 	}
 }

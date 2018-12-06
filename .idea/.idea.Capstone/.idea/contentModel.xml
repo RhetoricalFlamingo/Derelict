@@ -169,7 +169,6 @@
             </e>
           </e>
         </e>
-        <e p="progressTracker.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AdventureScripts" t="Include">
             <e p="playerController.cs" t="Include" />
@@ -199,6 +198,7 @@
             <e p="TimeManager.cs" t="Include" />
             <e p="wallTrigger.cs" t="Include" />
           </e>
+          <e p="progressTracker.cs" t="Include" />
         </e>
       </e>
       <e p="Capstone.sln" t="IncludeFlat" />

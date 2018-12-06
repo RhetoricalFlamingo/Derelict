@@ -9,6 +9,7 @@ public class GhostPlayer : MonoBehaviour
 {
 
 	public GameObject[] playerChars = new GameObject[2];
+	public GameObject[] laserSights = new GameObject[2];
 
 	public int targetHost = 0;
 	private int otherHost = 0;
@@ -30,8 +31,8 @@ public class GhostPlayer : MonoBehaviour
 	private bool lastFrameTrigger = false;
 	
 	private ParticleSystem thisPS;
-	public Material purpleMat;
-	public Material redMat;
+	private TrailRenderer thisTR;
+	public Material idleMat, chargeMat;
 
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
@@ -40,8 +41,7 @@ public class GhostPlayer : MonoBehaviour
 	public float camSpeed = 0;
 	private float mm_PlayerSpeed = 0;
 
-	public GameObject PlayerManager;
-	public GameObject GameManager;
+	public GameObject PlayerManager, GameManager;
 	private bool inSloMo = false;
 	private float smI = 0;
 	
@@ -52,7 +52,7 @@ public class GhostPlayer : MonoBehaviour
 		//mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		thisPS = this.GetComponent<ParticleSystem>();
 		thisRB = this.GetComponent<Rigidbody2D>();
-		
+		thisTR = this.GetComponent<TrailRenderer>();
 		//mm_PlayerSpeed = camSpeed / 4.5f;
 	}
 	
@@ -107,6 +107,12 @@ public class GhostPlayer : MonoBehaviour
 				otherHost = 0;
 
 			this.transform.position = playerChars[targetHost].transform.position;
+			laserSights[targetHost].SetActive(true);
+			laserSights[otherHost].SetActive(false);
+		}
+		else
+		{
+			laserSights[targetHost].SetActive(false);
 		}
 	}
 
@@ -116,7 +122,8 @@ public class GhostPlayer : MonoBehaviour
 		{
 			var thisEmission = thisPS.emission;
 			thisEmission.rateOverTime = 40;
-			thisPS.GetComponent<Renderer>().material = redMat;
+			thisPS.GetComponent<Renderer>().material = chargeMat;
+			thisTR.GetComponent<Renderer>().material = chargeMat;
 			
 			playerChars[targetHost].transform.position +=
 				new Vector3(Random.Range(-chargeI / 10, chargeI / 10), Random.Range(-chargeI / 10, chargeI / 10), 0f);
@@ -135,8 +142,9 @@ public class GhostPlayer : MonoBehaviour
 
 			var thisEmission = thisPS.emission;
 			thisEmission.rateOverTime = 28;
-			thisPS.GetComponent<Renderer>().material = purpleMat;
-				
+			thisPS.GetComponent<Renderer>().material = idleMat;
+			thisTR.GetComponent<Renderer>().material = idleMat;	
+			
 			chargeI = 0;
 			isHeld = false;
 		}

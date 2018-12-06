@@ -9,6 +9,7 @@ public class ObstacleScript : MonoBehaviour
 	private float currentHP = 0f;
 	public float maxHP = 0f;
 
+	public bool damageable = false, isGlass = false;
 	private bool damaged = false;
 	private bool justDamaged = false;
 	public Sprite this_Damaged;
@@ -53,13 +54,27 @@ public class ObstacleScript : MonoBehaviour
 		if (other.gameObject.tag == "enemyProj")
 		{
 			Destroy(other.gameObject);
-			currentHP--;
-			StartCoroutine(hitFlash());
+			if (damageable)
+			{
+				currentHP--;
+				StartCoroutine(hitFlash());
+			}
 		}
 		else if (other.gameObject.tag == "playerProj")
 		{
-			currentHP--;
-			StartCoroutine(hitFlash());
+			if (damageable)
+			{
+				currentHP--;
+				StartCoroutine(hitFlash());
+			}
+		}
+		else if (other.gameObject.tag == "Ghost")
+		{
+			if (isGlass)
+			{
+				currentHP--;
+				StartCoroutine(hitFlash());
+			}
 		}
 	}
 

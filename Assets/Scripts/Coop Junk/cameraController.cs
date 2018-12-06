@@ -21,6 +21,10 @@ public class cameraController : MonoBehaviour {
 	public bool firstShake = false;
 	public bool shaking = false;
 	private float shakeI = 0;
+
+	private bool isRed = false;
+	private float colourI = 0f;
+	public float colourMax = 0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,6 +36,7 @@ public class cameraController : MonoBehaviour {
 	{
 		trackPlayers();
 		cameraShake(.05f, .45f);
+		changeBackgroundColor();
 	}
 
 	void trackPlayers()		//Find midpoint between players, set camera placement equal to that point
@@ -75,6 +80,27 @@ public class cameraController : MonoBehaviour {
 				shaking = false;
 				shakeI = 0;
 			}
+		}
+	}
+
+	void changeBackgroundColor()
+	{
+		colourI += Time.deltaTime;
+
+		if (colourI >= colourMax)
+		{
+			if (isRed)
+			{
+				this.GetComponent<Camera>().backgroundColor = new Color(.7f, .3f, .3f, 1f);
+				isRed = false;
+			}
+			else
+			{
+				this.GetComponent<Camera>().backgroundColor = new Color(.3f, .3f, .7f, 1f);
+				isRed = true;
+			}
+
+			colourI = 0;
 		}
 	}
 }

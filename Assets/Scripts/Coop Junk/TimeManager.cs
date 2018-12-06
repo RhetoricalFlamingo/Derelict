@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.PostProcessing;
 
 public class TimeManager : MonoBehaviour
 {
@@ -8,12 +10,24 @@ public class TimeManager : MonoBehaviour
 	public bool inSloMo = false;
 	public float smI = 0;
 
-	public float fracTime = .06f;
-	public float sloDur = 0;
+	public float fracTime = .06f, sloDur = 0;
+
+	private float timeElapsed = 0f;
+	public float timeInSeconds = 0f, timeInMS = 0f, timeInNS = 0f;
+
+	public Text timerSeconds, timerMS, timerNS;
+
+	public PostProcessingProfile mainPPP;
+	private VignetteModel.Settings vigSettings;
+	private float minVig = .43f, maxVig = .5f, currentVig = 0;
+	public float vigSpeed = 5f;
+	private bool vigIncreasing = false;
 	
 	// Use this for initialization
 	void Start () {
-		
+		vigSettings = mainPPP.vignette.settings;
+
+		currentVig = minVig;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +36,9 @@ public class TimeManager : MonoBehaviour
 		{
 			sloMo(sloDur);
 		}
+
+		timer ();
+		heartBeatVignette ();
 	}
 	
 	public void sloMo(float dur)	//Activate slow motion
@@ -42,5 +59,37 @@ public class TimeManager : MonoBehaviour
 				smI = 0;
 			}
 		}
+	}
+
+	public void timer()	{
+		timeElapsed += Time.deltaTime;
+
+		timeInSeconds = (int)timeElapsed;
+
+		timeInMS = (timeElapsed - timeInSeconds) * 100;	timeInMS = (int)timeInMS;
+
+		timeInNS = (timeElapsed - (timeInSeconds + timeInMS / 100)) * 10000;	timeInNS = (int)timeInNS;
+
+		timerSeconds.text = "" + (99 - timeInSeconds);
+		timerMS.text = ":" + (99 - timeInMS);
+		timerNS.text = ":" + (99 - timeInNS);
+	}
+
+	public void heartBeatVignette ()	{
+		if (!vigIncreasing) {
+			currentVig -= (currentVig - minVig) * Time.deltaTime * vigSpeed;
+			if (currentVig <= minVig + .005f) {
+				vigIncreasing = true;
+			}
+		} 
+		else {
+			currentVig += (maxVig - currentVig) * Time.deltaTime * vigSpeed;
+			if (currentVig >= maxVig - .005f) {
+				vigIncreasing = false;
+			}
+		}
+
+		vigSettings.intensity = currentVig;
+		mainPPP.vignette.settings = vigSettings;
 	}
 }

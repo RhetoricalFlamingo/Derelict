@@ -85,7 +85,7 @@ public class cameraController : MonoBehaviour {
 
 	void changeBackgroundColor()
 	{
-		colourI += Time.deltaTime;
+		colourI += Time.deltaTime * 1.295f;
 
 		if (colourI >= colourMax)
 		{

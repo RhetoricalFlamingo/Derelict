@@ -28,7 +28,7 @@ TagManager:
   - GUN
   - PlayerEmpty
   - GunLayer
-  - 
+  - PlayerProjs
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 3263238387
+    locked: 0
   - name: Environment
     uniqueID: 1099821505
     locked: 0

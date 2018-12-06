@@ -17,23 +17,30 @@ public class GhostPlayer : MonoBehaviour
 	[FormerlySerializedAs("repoSpeed")] public float throwSpeed = 0;
 	private float modThrowSpeed = 0;
 
+	[Header("Rotation")]
 	private float rotaterTheta = 0;
 	public float rotSpeed = 0;
 	private Quaternion[] lastRotation = new Quaternion[2];
 
+	[Header("Throw")]
 	private float chargeI = 0;
 	public float chargeMax = 0;
 	[FormerlySerializedAs("haveBullet")] public bool isHeld = true;
 	private Rigidbody2D thisRB;
-	
+
+	[Header("Projectile/Shoot")]
 	public Rigidbody2D proj;
+	public Rigidbody2D weakProj;
 	public float projSpeed = 0;
+	public float weakProjSpeed = 0;
 	private bool lastFrameTrigger = false;
-	
+
+	[Header("Particles/Trail")]
 	private ParticleSystem thisPS;
 	private TrailRenderer thisTR;
 	public Material idleMat, chargeMat;
 
+	[Header("Cam/MiniMap")]
 	public GameObject mainCam;
 	private Rigidbody2D camRB;
 	public GameObject mm_Player;
@@ -41,6 +48,7 @@ public class GhostPlayer : MonoBehaviour
 	public float camSpeed = 0;
 	private float mm_PlayerSpeed = 0;
 
+	[Header("TimeManager/SloMo")]
 	public GameObject PlayerManager, GameManager;
 	private bool inSloMo = false;
 	private float smI = 0;
@@ -159,31 +167,47 @@ public class GhostPlayer : MonoBehaviour
 			
 			lastRotation[0] = playerChars[0].transform.rotation;
 			lastRotation[1] = playerChars[1].transform.rotation;
-			Debug.Log("atTargetRotation");
+			//Debug.Log("atTargetRotation");
 		}
 		else
 		{
 			playerChars[otherHost].transform.rotation = lastRotation[otherHost];
 		}
+
+		if (!isHeld) {
+			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
+			this.transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
+		}
 	}
 
 	void Shoot()	//Fire weapon from currently-controlled character
 	{
-		if (isHeld && !lastFrameTrigger && Input.GetAxis("R2_C2") >= .8f)
+		if (!lastFrameTrigger && Input.GetAxis("R2_C2") >= .8f)
 		{
 			lastFrameTrigger = true;
-			
-			Rigidbody2D shotInstance;
-			shotInstance = Instantiate(proj, playerChars[targetHost].transform.position + (playerChars[targetHost].transform.up * 12), Quaternion.identity);
-			shotInstance.transform.localScale = new Vector2(1f, 1f) * chargeI;
-			shotInstance.velocity = playerChars[targetHost].transform.TransformDirection(Vector3.up * projSpeed);
 
-			mainCam.GetComponent<cameraController>().shaking = true;
-			
+			if (isHeld) {
+				Rigidbody2D shotInstance;
+				shotInstance = Instantiate (proj, playerChars [targetHost].transform.position + (playerChars [targetHost].transform.up * 12), Quaternion.identity);
+				shotInstance.transform.localScale = new Vector2 (1f, 1f);
+				shotInstance.velocity = playerChars [targetHost].transform.TransformDirection (Vector3.up * projSpeed);
+
+				mainCam.GetComponent<cameraController> ().shaking = true;
+			} else {
+				Rigidbody2D shotInstance;
+				shotInstance = Instantiate (weakProj, this.transform.position, Quaternion.identity);
+				shotInstance.transform.localScale = new Vector2 (.3f, .3f);
+				shotInstance.velocity = this.transform.TransformDirection (Vector3.up * weakProjSpeed);
+
+				thisRB.AddForce (-this.transform.up * .2f, ForceMode2D.Impulse);
+				//Debug.Log ("peaShot");
+
+				mainCam.GetComponent<cameraController> ().shaking = true;
+			}
 			//Debug.Log("shoot");
 		}
 
-		if (isHeld && Input.GetAxis("R2_C2") < .5f && lastFrameTrigger)
+		if (Input.GetAxis("R2_C2") < .5f && lastFrameTrigger)
 		{
 			lastFrameTrigger = false;
 		}

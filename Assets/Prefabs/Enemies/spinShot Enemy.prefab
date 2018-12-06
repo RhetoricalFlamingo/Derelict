@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50015813383020680}
   - component: {fileID: 114506661440355470}
   - component: {fileID: 114677341813075376}
+  - component: {fileID: 114376740439896682}
   m_Layer: 8
   m_Name: spinShot Enemy
   m_TagString: Untagged
@@ -79,6 +80,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 11
+--- !u!114 &114376740439896682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758258703950486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Enemy
 --- !u!114 &114506661440355470
 MonoBehaviour:
   m_ObjectHideFlags: 1

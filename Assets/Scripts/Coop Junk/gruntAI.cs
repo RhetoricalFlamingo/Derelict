@@ -61,7 +61,6 @@ public class gruntAI : MonoBehaviour
 		{
 			currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
 			Destroy(other.gameObject);
-			StartCoroutine(hitFlash());
 		}
 	}
 	
@@ -108,16 +107,5 @@ public class gruntAI : MonoBehaviour
 			}
 		}
 		//else active = false;
-	}
-	
-	private IEnumerator hitFlash()
-	{
-		Debug.Log("hitFlash");
-		this.GetComponent<SpriteRenderer>().color = new Color(.9f, .3f, .3f, .9f);
-		this.transform.localScale *= 1.15f;
-		yield return new WaitForSeconds(.08f);
-		this.GetComponent<SpriteRenderer>().color = Color.white;
-		this.transform.localScale /= 1.15f;
-		yield return null;
 	}
 }

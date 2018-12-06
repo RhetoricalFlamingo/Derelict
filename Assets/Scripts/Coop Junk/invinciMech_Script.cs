@@ -66,6 +66,7 @@ public class invinciMech_Script : MonoBehaviour
 			if (stunned)
 			{
 				currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
+				StartCoroutine (this.GetComponent<hitFlash>().hitFlashFunc());
 			}
 			
 				Destroy(other.gameObject);

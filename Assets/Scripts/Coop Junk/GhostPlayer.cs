@@ -175,8 +175,14 @@ public class GhostPlayer : MonoBehaviour
 		}
 
 		if (!isHeld) {
-			rotaterTheta = Mathf.Atan2(Input.GetAxis("RVertical_C2"), Input.GetAxis("RHorizontal_C2")) * -Mathf.Rad2Deg;
-			this.transform.rotation = Quaternion.Euler(0, 0, rotaterTheta - 90.0f);
+			if (Input.GetAxis ("RVertical_C2") != 0 || Input.GetAxis ("RHorizontal_C2") != 0) {
+				rotaterTheta = Mathf.Atan2 (Input.GetAxis ("RVertical_C2"), Input.GetAxis ("RHorizontal_C2")) * -Mathf.Rad2Deg;
+				this.transform.rotation = Quaternion.Euler (0, 0, rotaterTheta - 90.0f);
+
+				lastRotation [0] = this.transform.rotation;
+			} else {
+				this.transform.rotation = lastRotation [0];
+			}
 		}
 	}
 
@@ -199,7 +205,7 @@ public class GhostPlayer : MonoBehaviour
 				shotInstance.transform.localScale = new Vector2 (.3f, .3f);
 				shotInstance.velocity = this.transform.TransformDirection (Vector3.up * weakProjSpeed);
 
-				thisRB.AddForce (-this.transform.up * .2f, ForceMode2D.Impulse);
+				thisRB.AddForce (-this.transform.up * .1f, ForceMode2D.Impulse);
 				//Debug.Log ("peaShot");
 
 				mainCam.GetComponent<cameraController> ().shaking = true;

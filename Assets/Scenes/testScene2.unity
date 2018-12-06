@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 2440571}
   - component: {fileID: 2440570}
   - component: {fileID: 2440569}
+  - component: {fileID: 2440572}
   m_Layer: 0
   m_Name: Column (13)
   m_TagString: Untagged
@@ -230,6 +231,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2440572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2440567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &3832906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1351,7 @@ GameObject:
   - component: {fileID: 73083379}
   - component: {fileID: 73083378}
   - component: {fileID: 73083381}
+  - component: {fileID: 73083382}
   m_Layer: 0
   m_Name: Column (6)
   m_TagString: Untagged
@@ -1444,6 +1458,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &73083382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73083377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &88940022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1657,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200068447923144, guid: d1978f24644715c49afb8b28cf29b7b0, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114677341813075376, guid: d1978f24644715c49afb8b28cf29b7b0,
         type: 2}
@@ -4205,6 +4231,7 @@ GameObject:
   - component: {fileID: 275615461}
   - component: {fileID: 275615460}
   - component: {fileID: 275615459}
+  - component: {fileID: 275615462}
   m_Layer: 0
   m_Name: Wall (2)
   m_TagString: Untagged
@@ -4311,6 +4338,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &275615462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275615457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &275827902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4736,6 +4775,7 @@ GameObject:
   - component: {fileID: 299653646}
   - component: {fileID: 299653645}
   - component: {fileID: 299653647}
+  - component: {fileID: 299653648}
   m_Layer: 0
   m_Name: Column (1)
   m_TagString: Untagged
@@ -4842,6 +4882,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &299653648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 299653643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &308954611
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,6 +5397,7 @@ GameObject:
   - component: {fileID: 325464190}
   - component: {fileID: 325464189}
   - component: {fileID: 325464192}
+  - component: {fileID: 325464193}
   m_Layer: 0
   m_Name: Column (5)
   m_TagString: Untagged
@@ -5451,6 +5504,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &325464193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 325464188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &326220283
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,6 +5836,7 @@ GameObject:
   - component: {fileID: 340847812}
   - component: {fileID: 340847811}
   - component: {fileID: 340847810}
+  - component: {fileID: 340847813}
   m_Layer: 0
   m_Name: Column (12)
   m_TagString: Untagged
@@ -5877,6 +5943,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &340847813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 340847808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &348163229
 GameObject:
   m_ObjectHideFlags: 0
@@ -6423,6 +6501,7 @@ GameObject:
   - component: {fileID: 359889419}
   - component: {fileID: 359889418}
   - component: {fileID: 359889417}
+  - component: {fileID: 359889422}
   m_Layer: 8
   m_Name: invinciMech (3)
   m_TagString: Untagged
@@ -6545,8 +6624,20 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1625452652}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359889422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359889416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &363639733
 GameObject:
   m_ObjectHideFlags: 0
@@ -8292,6 +8383,7 @@ GameObject:
   - component: {fileID: 463340584}
   - component: {fileID: 463340583}
   - component: {fileID: 463340582}
+  - component: {fileID: 463340585}
   m_Layer: 0
   m_Name: Column (23)
   m_TagString: Untagged
@@ -8398,6 +8490,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &463340585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 463340580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &470677033
 GameObject:
   m_ObjectHideFlags: 0
@@ -8825,6 +8929,7 @@ GameObject:
   - component: {fileID: 485992113}
   - component: {fileID: 485992112}
   - component: {fileID: 485992111}
+  - component: {fileID: 485992114}
   m_Layer: 0
   m_Name: Column (10)
   m_TagString: Untagged
@@ -8931,6 +9036,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &485992114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485992109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &502973464
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,6 +10388,7 @@ GameObject:
   - component: {fileID: 572835410}
   - component: {fileID: 572835409}
   - component: {fileID: 572835408}
+  - component: {fileID: 572835411}
   m_Layer: 0
   m_Name: Column (25)
   m_TagString: Untagged
@@ -10289,7 +10407,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 1133665231}
-  m_RootOrder: 29
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &572835408
 BoxCollider2D:
@@ -10377,6 +10495,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &572835411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 572835406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &574142133
 GameObject:
   m_ObjectHideFlags: 0
@@ -10538,6 +10668,7 @@ GameObject:
   - component: {fileID: 583194376}
   - component: {fileID: 583194375}
   - component: {fileID: 583194374}
+  - component: {fileID: 583194377}
   m_Layer: 0
   m_Name: Wall (3)
   m_TagString: Untagged
@@ -10644,6 +10775,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &583194377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583194372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &583711672
 GameObject:
   m_ObjectHideFlags: 0
@@ -10892,6 +11035,7 @@ GameObject:
   - component: {fileID: 618336582}
   - component: {fileID: 618336581}
   - component: {fileID: 618336580}
+  - component: {fileID: 618336585}
   m_Layer: 8
   m_Name: invinciMech (4)
   m_TagString: Untagged
@@ -11014,8 +11158,20 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1625452652}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &618336585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618336579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &620123424
 GameObject:
   m_ObjectHideFlags: 0
@@ -11835,12 +11991,12 @@ GameObject:
   - component: {fileID: 655607375}
   - component: {fileID: 655607374}
   - component: {fileID: 655607373}
-  - component: {fileID: 655607372}
   - component: {fileID: 655607371}
   - component: {fileID: 655607370}
   - component: {fileID: 655607369}
   - component: {fileID: 655607368}
   - component: {fileID: 655607367}
+  - component: {fileID: 655607372}
   m_Layer: 12
   m_Name: Gun
   m_TagString: Ghost
@@ -16565,21 +16721,52 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 7.5
---- !u!58 &655607372
-CircleCollider2D:
+--- !u!212 &655607372
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 655607366}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 7.5
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: acc71d2800f63744c8be12a414f54077, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 36.17, y: 23.66}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!50 &655607373
 Rigidbody2D:
   serializedVersion: 4
@@ -16623,7 +16810,7 @@ MonoBehaviour:
   chargeMax: 2.75
   isHeld: 1
   proj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
-  weakProj: {fileID: 50395882856197596, guid: 20dddf4563fb68640a47bf5f94ac15b2, type: 2}
+  weakProj: {fileID: 50977820728700414, guid: 495977253a0314f498b6735a09908f0a, type: 2}
   projSpeed: 410
   weakProjSpeed: 200
   idleMat: {fileID: 2100000, guid: 6cd2b66524393d74e97b8324f3a4b6a9, type: 2}
@@ -16641,7 +16828,7 @@ Transform:
   m_GameObject: {fileID: 655607366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.709862, y: 16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 900890598}
   m_Father: {fileID: 294929528}
@@ -16658,6 +16845,7 @@ GameObject:
   - component: {fileID: 656443374}
   - component: {fileID: 656443373}
   - component: {fileID: 656443372}
+  - component: {fileID: 656443375}
   m_Layer: 0
   m_Name: Wall (6)
   m_TagString: Untagged
@@ -16764,6 +16952,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &656443375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656443370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &657894540
 GameObject:
   m_ObjectHideFlags: 0
@@ -17443,6 +17643,7 @@ GameObject:
   - component: {fileID: 709450911}
   - component: {fileID: 709450910}
   - component: {fileID: 709450909}
+  - component: {fileID: 709450912}
   m_Layer: 0
   m_Name: Column (15)
   m_TagString: Untagged
@@ -17549,6 +17750,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &709450912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709450907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &718455017
 GameObject:
   m_ObjectHideFlags: 0
@@ -19208,6 +19421,7 @@ GameObject:
   - component: {fileID: 813237976}
   - component: {fileID: 813237975}
   - component: {fileID: 813237974}
+  - component: {fileID: 813237977}
   m_Layer: 0
   m_Name: Wall (4)
   m_TagString: Untagged
@@ -19223,10 +19437,10 @@ Transform:
   m_GameObject: {fileID: 813237972}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 20.799997, y: -435.9, z: 0}
-  m_LocalScale: {x: 10.690023, y: 4.000002, z: 1}
+  m_LocalScale: {x: 10.690027, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1133665231}
-  m_RootOrder: 26
+  m_Father: {fileID: 2129249838}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &813237974
 BoxCollider2D:
@@ -19314,6 +19528,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &813237977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813237972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &814375733
 GameObject:
   m_ObjectHideFlags: 0
@@ -20552,6 +20778,7 @@ GameObject:
   - component: {fileID: 853291219}
   - component: {fileID: 853291218}
   - component: {fileID: 853291217}
+  - component: {fileID: 853291220}
   m_Layer: 0
   m_Name: Column (9)
   m_TagString: Untagged
@@ -20658,6 +20885,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &853291220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 853291215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &856389534
 GameObject:
   m_ObjectHideFlags: 0
@@ -20669,6 +20908,7 @@ GameObject:
   - component: {fileID: 856389538}
   - component: {fileID: 856389537}
   - component: {fileID: 856389536}
+  - component: {fileID: 856389539}
   m_Layer: 0
   m_Name: Column (17)
   m_TagString: Untagged
@@ -20775,6 +21015,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &856389539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 856389534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &857717839
 GameObject:
   m_ObjectHideFlags: 0
@@ -21011,6 +21263,7 @@ GameObject:
   - component: {fileID: 876881775}
   - component: {fileID: 876881774}
   - component: {fileID: 876881773}
+  - component: {fileID: 876881776}
   m_Layer: 0
   m_Name: Column (20)
   m_TagString: Untagged
@@ -21117,6 +21370,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &876881776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876881771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &880564128
 GameObject:
   m_ObjectHideFlags: 0
@@ -22834,6 +23099,7 @@ GameObject:
   - component: {fileID: 996196134}
   - component: {fileID: 996196133}
   - component: {fileID: 996196132}
+  - component: {fileID: 996196137}
   m_Layer: 8
   m_Name: invinciMech (2)
   m_TagString: Untagged
@@ -22956,8 +23222,20 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1625452652}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996196137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 996196131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &1004409839
 GameObject:
   m_ObjectHideFlags: 0
@@ -22969,6 +23247,7 @@ GameObject:
   - component: {fileID: 1004409841}
   - component: {fileID: 1004409840}
   - component: {fileID: 1004409843}
+  - component: {fileID: 1004409844}
   m_Layer: 0
   m_Name: Column (4)
   m_TagString: Untagged
@@ -23075,6 +23354,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &1004409844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004409839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1006673638
 GameObject:
   m_ObjectHideFlags: 0
@@ -23279,6 +23570,7 @@ GameObject:
   - component: {fileID: 1016207385}
   - component: {fileID: 1016207384}
   - component: {fileID: 1016207383}
+  - component: {fileID: 1016207388}
   m_Layer: 8
   m_Name: invinciMech (1)
   m_TagString: Untagged
@@ -23401,8 +23693,20 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1625452652}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016207388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016207382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &1036685346
 GameObject:
   m_ObjectHideFlags: 0
@@ -23715,6 +24019,7 @@ GameObject:
   - component: {fileID: 1077888977}
   - component: {fileID: 1077888976}
   - component: {fileID: 1077888975}
+  - component: {fileID: 1077888980}
   m_Layer: 8
   m_Name: invinciMech
   m_TagString: Untagged
@@ -23837,8 +24142,20 @@ Transform:
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 1625452652}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077888980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1077888974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &1092523727
 GameObject:
   m_ObjectHideFlags: 0
@@ -23850,6 +24167,7 @@ GameObject:
   - component: {fileID: 1092523731}
   - component: {fileID: 1092523730}
   - component: {fileID: 1092523729}
+  - component: {fileID: 1092523732}
   m_Layer: 0
   m_Name: Column (18)
   m_TagString: Untagged
@@ -23956,6 +24274,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1092523732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1092523727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1094277048
 GameObject:
   m_ObjectHideFlags: 0
@@ -24117,6 +24447,7 @@ GameObject:
   - component: {fileID: 1097596781}
   - component: {fileID: 1097596780}
   - component: {fileID: 1097596779}
+  - component: {fileID: 1097596782}
   m_Layer: 0
   m_Name: Column (22)
   m_TagString: Untagged
@@ -24223,6 +24554,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1097596782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097596777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1106746751
 GameObject:
   m_ObjectHideFlags: 0
@@ -24499,12 +24842,8 @@ Transform:
   - {fileID: 1282656152}
   - {fileID: 1097596778}
   - {fileID: 463340581}
-  - {fileID: 813237973}
-  - {fileID: 1505400311}
   - {fileID: 1763369513}
   - {fileID: 572835407}
-  - {fileID: 1569096837}
-  - {fileID: 2129222971}
   m_Father: {fileID: 154733213}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24588,6 +24927,7 @@ GameObject:
   - component: {fileID: 1146128556}
   - component: {fileID: 1146128555}
   - component: {fileID: 1146128558}
+  - component: {fileID: 1146128559}
   m_Layer: 0
   m_Name: Column (3)
   m_TagString: Untagged
@@ -24694,6 +25034,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &1146128559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146128554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1148410770
 GameObject:
   m_ObjectHideFlags: 0
@@ -24780,6 +25132,7 @@ GameObject:
   - component: {fileID: 1154342955}
   - component: {fileID: 1154342954}
   - component: {fileID: 1154342953}
+  - component: {fileID: 1154342956}
   m_Layer: 0
   m_Name: Wall (5)
   m_TagString: Untagged
@@ -24886,6 +25239,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1154342956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1154342951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1167377093
 GameObject:
   m_ObjectHideFlags: 0
@@ -25287,6 +25652,7 @@ GameObject:
   - component: {fileID: 1211791035}
   - component: {fileID: 1211791034}
   - component: {fileID: 1211791037}
+  - component: {fileID: 1211791038}
   m_Layer: 0
   m_Name: Column (7)
   m_TagString: Untagged
@@ -25393,6 +25759,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &1211791038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211791033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1217253870
 GameObject:
   m_ObjectHideFlags: 0
@@ -25580,7 +25958,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200068447923144, guid: d1978f24644715c49afb8b28cf29b7b0, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114677341813075376, guid: d1978f24644715c49afb8b28cf29b7b0,
         type: 2}
@@ -26286,6 +26664,7 @@ GameObject:
   - component: {fileID: 1282656155}
   - component: {fileID: 1282656154}
   - component: {fileID: 1282656153}
+  - component: {fileID: 1282656156}
   m_Layer: 0
   m_Name: Column (21)
   m_TagString: Untagged
@@ -26392,6 +26771,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1282656156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282656151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1295602132
 GameObject:
   m_ObjectHideFlags: 0
@@ -27307,7 +27698,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200068447923144, guid: d1978f24644715c49afb8b28cf29b7b0, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114677341813075376, guid: d1978f24644715c49afb8b28cf29b7b0,
         type: 2}
@@ -27821,6 +28212,7 @@ GameObject:
   - component: {fileID: 1366493740}
   - component: {fileID: 1366493739}
   - component: {fileID: 1366493738}
+  - component: {fileID: 1366493741}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -27927,6 +28319,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1366493741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366493736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1001 &1370251525
 Prefab:
   m_ObjectHideFlags: 0
@@ -28687,6 +29091,7 @@ GameObject:
   - component: {fileID: 1439703467}
   - component: {fileID: 1439703466}
   - component: {fileID: 1439703465}
+  - component: {fileID: 1439703468}
   m_Layer: 0
   m_Name: Column (14)
   m_TagString: Untagged
@@ -28793,6 +29198,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1439703468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439703463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1444386810
 GameObject:
   m_ObjectHideFlags: 0
@@ -29210,6 +29627,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1461758419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758258703950486, guid: d1978f24644715c49afb8b28cf29b7b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1341071276}
+--- !u!114 &1461758420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1461758419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: 
 --- !u!1 &1471307854
 GameObject:
   m_ObjectHideFlags: 0
@@ -29439,7 +29873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200068447923144, guid: d1978f24644715c49afb8b28cf29b7b0, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114677341813075376, guid: d1978f24644715c49afb8b28cf29b7b0,
         type: 2}
@@ -29670,6 +30104,7 @@ GameObject:
   - component: {fileID: 1505400314}
   - component: {fileID: 1505400313}
   - component: {fileID: 1505400312}
+  - component: {fileID: 1505400315}
   m_Layer: 0
   m_Name: Wall (5)
   m_TagString: Untagged
@@ -29687,8 +30122,8 @@ Transform:
   m_LocalPosition: {x: -0.3000002, y: -416.1, z: 0}
   m_LocalScale: {x: 10.69002, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1133665231}
-  m_RootOrder: 27
+  m_Father: {fileID: 2129249838}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1505400312
 BoxCollider2D:
@@ -29776,6 +30211,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1505400315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505400310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1511122351
 GameObject:
   m_ObjectHideFlags: 0
@@ -29856,6 +30303,7 @@ GameObject:
   - component: {fileID: 1515196413}
   - component: {fileID: 1515196412}
   - component: {fileID: 1515196411}
+  - component: {fileID: 1515196414}
   m_Layer: 0
   m_Name: Wall (4)
   m_TagString: Untagged
@@ -29962,6 +30410,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1515196414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515196409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1517114127
 GameObject:
   m_ObjectHideFlags: 0
@@ -31243,6 +31703,7 @@ GameObject:
   - component: {fileID: 1569096840}
   - component: {fileID: 1569096839}
   - component: {fileID: 1569096838}
+  - component: {fileID: 1569096841}
   m_Layer: 0
   m_Name: Wall (6)
   m_TagString: Untagged
@@ -31260,8 +31721,8 @@ Transform:
   m_LocalPosition: {x: -0.3000002, y: -443.3, z: 0}
   m_LocalScale: {x: 10.69002, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1133665231}
-  m_RootOrder: 30
+  m_Father: {fileID: 2129249838}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1569096838
 BoxCollider2D:
@@ -31349,6 +31810,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1569096841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569096836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1581208422
 GameObject:
   m_ObjectHideFlags: 0
@@ -32113,6 +32586,7 @@ GameObject:
   - component: {fileID: 1603320551}
   - component: {fileID: 1603320550}
   - component: {fileID: 1603320549}
+  - component: {fileID: 1603320552}
   m_Layer: 0
   m_Name: Column (19)
   m_TagString: Untagged
@@ -32219,6 +32693,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1603320552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1603320547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1618850156
 GameObject:
   m_ObjectHideFlags: 0
@@ -32397,15 +32883,15 @@ Transform:
   - {fileID: 214631525}
   - {fileID: 934066189}
   - {fileID: 201800726}
+  - {fileID: 1341071277}
+  - {fileID: 112110384}
+  - {fileID: 1228759188}
+  - {fileID: 1484448504}
   - {fileID: 1077888979}
   - {fileID: 1016207387}
   - {fileID: 996196136}
   - {fileID: 359889421}
   - {fileID: 618336584}
-  - {fileID: 1341071277}
-  - {fileID: 112110384}
-  - {fileID: 1228759188}
-  - {fileID: 1484448504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33297,6 +33783,7 @@ GameObject:
   - component: {fileID: 1698800033}
   - component: {fileID: 1698800032}
   - component: {fileID: 1698800035}
+  - component: {fileID: 1698800036}
   m_Layer: 0
   m_Name: Column (1)
   m_TagString: Untagged
@@ -33403,6 +33890,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &1698800036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1698800031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1707382187
 GameObject:
   m_ObjectHideFlags: 0
@@ -34065,6 +34564,7 @@ GameObject:
   - component: {fileID: 1726076588}
   - component: {fileID: 1726076587}
   - component: {fileID: 1726076586}
+  - component: {fileID: 1726076589}
   m_Layer: 0
   m_Name: Wall (7)
   m_TagString: Untagged
@@ -34171,6 +34671,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1726076589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1726076584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1729389812
 GameObject:
   m_ObjectHideFlags: 0
@@ -34641,6 +35153,7 @@ GameObject:
   - component: {fileID: 1763369516}
   - component: {fileID: 1763369515}
   - component: {fileID: 1763369514}
+  - component: {fileID: 1763369517}
   m_Layer: 0
   m_Name: Column (24)
   m_TagString: Untagged
@@ -34659,7 +35172,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 1133665231}
-  m_RootOrder: 28
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1763369514
 BoxCollider2D:
@@ -34747,6 +35260,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1763369517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1763369512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1001 &1763842987
 Prefab:
   m_ObjectHideFlags: 0
@@ -37052,6 +37577,7 @@ GameObject:
   - component: {fileID: 1931232790}
   - component: {fileID: 1931232789}
   - component: {fileID: 1931232788}
+  - component: {fileID: 1931232791}
   m_Layer: 0
   m_Name: Column (16)
   m_TagString: Untagged
@@ -37158,6 +37684,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1931232791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1931232786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &1935281627
 GameObject:
   m_ObjectHideFlags: 0
@@ -38084,6 +38622,7 @@ GameObject:
   - component: {fileID: 2007869985}
   - component: {fileID: 2007869984}
   - component: {fileID: 2007869983}
+  - component: {fileID: 2007869986}
   m_Layer: 0
   m_Name: Column (8)
   m_TagString: Untagged
@@ -38190,6 +38729,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2007869986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2007869981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &2023489808
 GameObject:
   m_ObjectHideFlags: 0
@@ -39542,6 +40093,7 @@ GameObject:
   - component: {fileID: 2126518012}
   - component: {fileID: 2126518011}
   - component: {fileID: 2126518010}
+  - component: {fileID: 2126518013}
   m_Layer: 0
   m_Name: Column (11)
   m_TagString: Untagged
@@ -39648,6 +40200,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2126518013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126518008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &2128019392
 GameObject:
   m_ObjectHideFlags: 0
@@ -39659,6 +40223,7 @@ GameObject:
   - component: {fileID: 2128019394}
   - component: {fileID: 2128019393}
   - component: {fileID: 2128019396}
+  - component: {fileID: 2128019397}
   m_Layer: 0
   m_Name: Column (2)
   m_TagString: Untagged
@@ -39765,6 +40330,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &2128019397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128019392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &2129222970
 GameObject:
   m_ObjectHideFlags: 0
@@ -39776,6 +40353,7 @@ GameObject:
   - component: {fileID: 2129222974}
   - component: {fileID: 2129222973}
   - component: {fileID: 2129222972}
+  - component: {fileID: 2129222975}
   m_Layer: 0
   m_Name: Wall (7)
   m_TagString: Untagged
@@ -39793,8 +40371,8 @@ Transform:
   m_LocalPosition: {x: -74.4, y: -443.3, z: 0}
   m_LocalScale: {x: 10.69002, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 1133665231}
-  m_RootOrder: 31
+  m_Father: {fileID: 2129249838}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2129222972
 BoxCollider2D:
@@ -39882,6 +40460,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2129222975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2129222970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &2129249837
 GameObject:
   m_ObjectHideFlags: 0
@@ -39915,6 +40505,10 @@ Transform:
   - {fileID: 1154342952}
   - {fileID: 656443371}
   - {fileID: 1726076585}
+  - {fileID: 813237973}
+  - {fileID: 1505400311}
+  - {fileID: 1569096837}
+  - {fileID: 2129222971}
   m_Father: {fileID: 154733213}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39929,6 +40523,7 @@ GameObject:
   - component: {fileID: 2133853321}
   - component: {fileID: 2133853320}
   - component: {fileID: 2133853322}
+  - component: {fileID: 2133853323}
   m_Layer: 0
   m_Name: Column (3)
   m_TagString: Untagged
@@ -40035,6 +40630,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.47, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &2133853323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2133853318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a10b49c214378449419b00f50f8623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagID: Destructible
 --- !u!1 &2146434106
 GameObject:
   m_ObjectHideFlags: 0

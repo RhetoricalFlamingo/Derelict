@@ -57,7 +57,6 @@ public class ObstacleScript : MonoBehaviour
 			if (damageable)
 			{
 				currentHP--;
-				StartCoroutine(hitFlash());
 			}
 		}
 		else if (other.gameObject.tag == "playerProj")
@@ -65,7 +64,6 @@ public class ObstacleScript : MonoBehaviour
 			if (damageable)
 			{
 				currentHP--;
-				StartCoroutine(hitFlash());
 			}
 		}
 		else if (other.gameObject.tag == "Ghost")
@@ -73,19 +71,7 @@ public class ObstacleScript : MonoBehaviour
 			if (isGlass)
 			{
 				currentHP--;
-				StartCoroutine(hitFlash());
 			}
 		}
-	}
-
-	private IEnumerator hitFlash()
-	{
-		Debug.Log("hitFlash");
-		this.GetComponent<SpriteRenderer>().color = new Color(.9f, .3f, 0.3f, .9f);
-		this.transform.localScale *= 1.15f;
-		yield return new WaitForSeconds(.08f);
-		this.GetComponent<SpriteRenderer>().color = Color.white;
-		this.transform.localScale /= 1.15f;
-		yield return null;
 	}
 }

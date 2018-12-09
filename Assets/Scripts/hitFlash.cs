@@ -30,6 +30,6 @@ public class hitFlash : MonoBehaviour {
 		this.transform.localScale /= 1.15f;
 		yield return null;
 
-		Debug.Log ("Colour = " + startColour);
+		//Debug.Log ("Colour = " + startColour);
 	}
 }

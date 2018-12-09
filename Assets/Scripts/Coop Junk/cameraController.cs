@@ -59,7 +59,7 @@ public class cameraController : MonoBehaviour {
 		
 		if (shaking)
 		{
-			Debug.Log("Shake");
+			//Debug.Log("Shake");
 			
 			if (firstShake)
 			{

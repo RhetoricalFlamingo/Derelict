@@ -8,7 +8,7 @@ public class buttonScript : MonoBehaviour {
 
 	private bool pressable = false, growing = true;
 	public float maxScale = 0f, minScale = 0f, currentScale = 0f;
-	private float startY = 0f, yTop = 2f;
+	private float startY = 0f, yTop = 5f;
 
 	private Vector2 startScale = new Vector2(0f, 0f);
 
@@ -21,7 +21,6 @@ public class buttonScript : MonoBehaviour {
 		startScale = this.transform.localScale;
 		startColour = this.GetComponent<SpriteRenderer> ().color;
 		startY = corDoor.transform.position.y;
-		yTop += startY;
 	}
 
 	void Update () {
@@ -78,34 +77,28 @@ public class buttonScript : MonoBehaviour {
 
 	void RaiseDoor ()	{
 		if (corDoor.transform.position.y < startY + yTop) {
-			corDoor.transform.position += new Vector3 (0, ((yTop - corDoor.transform.position.y) * Time.deltaTime / 3), 0f);
+			corDoor.transform.position += Vector3.up * ((yTop + startY + 1 - corDoor.transform.position.y) * Time.deltaTime * 10);
 			corDoor.GetComponent<SpriteRenderer> ().color -= new Color (0f, 0f, 0f, Time.deltaTime * 12);
+			corDoor.GetComponent<BoxCollider2D>().enabled = false;
 
 			Debug.Log ("goingUp");
 		}
 		else {
-			corDoor.transform.position = new Vector3 (
-				corDoor.transform.position.x, 
-				corDoor.transform.position.y, 
-				-9f
-			);
+			corDoor.GetComponent<SpriteRenderer> ().color = new Color (startColour.r, startColour.g, startColour.b, 0f);
 			Debug.Log ("Completely up");
 		}
 	}
 
 	void LowerDoor ()	{
 		if (corDoor.transform.position.y > startY) {
-			corDoor.transform.position -= new Vector3 (0, ((corDoor.transform.position.y - startY) * Time.deltaTime / 3), 0f);
+			corDoor.transform.position -= Vector3.up * ((corDoor.transform.position.y - startY + 1) * Time.deltaTime * 10);
 			corDoor.GetComponent<SpriteRenderer> ().color += new Color (0f, 0f, 0f, Time.deltaTime * 12);
 
 			Debug.Log ("goingDown");
 		}
 		else {
-			corDoor.transform.position = new Vector3 (
-				corDoor.transform.position.x, 
-				corDoor.transform.position.y, 
-				0f
-			);
+			corDoor.GetComponent<BoxCollider2D>().enabled = true;
+			corDoor.GetComponent<SpriteRenderer> ().color = startColour;
 			Debug.Log ("completelyDown");
 		}
 	}

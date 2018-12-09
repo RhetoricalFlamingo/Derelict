@@ -22,7 +22,7 @@ public class hitFlash : MonoBehaviour {
 
 	public IEnumerator hitFlashFunc()
 	{
-		Debug.Log("hitFlash");
+		//Debug.Log("hitFlash");
 		this.GetComponent<SpriteRenderer>().color = new Color(.9f, .3f, .3f, .9f);
 		this.transform.localScale *= 1.15f;
 		yield return new WaitForSeconds(.08f);

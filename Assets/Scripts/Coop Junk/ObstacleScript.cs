@@ -51,27 +51,21 @@ public class ObstacleScript : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "enemyProj")
-		{
-			Destroy(other.gameObject);
-			if (damageable)
-			{
+		if (other.gameObject.tag == "enemyProj") {
+			Destroy (other.gameObject);
+			if (damageable) {
 				currentHP--;
 			}
-		}
-		else if (other.gameObject.tag == "playerProj")
-		{
-			if (damageable)
-			{
+		} else if (other.gameObject.tag == "playerProj") {
+			if (damageable) {
 				currentHP--;
 			}
-		}
-		else if (other.gameObject.tag == "Ghost")
-		{
-			if (isGlass)
-			{
+		} else if (other.gameObject.tag == "Ghost") {
+			if (isGlass && !other.gameObject.transform.parent.GetComponent<GhostPlayer>().isHeld) {
 				currentHP--;
 			}
+		} else if (isGlass && other.gameObject.tag == "Player" && other.gameObject.GetComponent<Rigidbody2D> ().velocity.magnitude > 100) {
+			currentHP--;
 		}
 	}
 }

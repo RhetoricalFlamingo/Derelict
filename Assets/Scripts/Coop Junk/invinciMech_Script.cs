@@ -115,7 +115,6 @@ public class invinciMech_Script : MonoBehaviour
 				targetChar = chars[0];
 			}
 		}
-		else active = false;
 	}
 
 	private void Stunned()	//Invinicimechs are stunned for a time when hit by a thrown gun

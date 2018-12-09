@@ -9,13 +9,11 @@ public class aimEnemy : MonoBehaviour {
 	public GameObject[] chars = new GameObject[2];
 	private GameObject targetChar;
 	public bool active = false;
-	public float rotationSpeed;
-	public float moveSpeed = 0;
+	public float rotationSpeed = 0, moveSpeed = 0;
 	
 	[Header("SHOT")]
 	//public int shotDamage;
-	public float shotSpeed;
-	public float shotDelay;
+	public float shotSpeed, shotDelay;
 	private float shotTimer;
 	public int volleySize;
 	public float volleyGap;
@@ -24,10 +22,16 @@ public class aimEnemy : MonoBehaviour {
 	[Header("INSTANCES")]
 	public GameObject bulletInstance;
 	private Transform t;
+	public GameObject PlayerManager;
+
+	[Header("STATS")]
+	public float contactDamage = 0f, maxHP = 0f;
+	private float currentHP = 0f;
 	
 	// Use this for initialization
 	void Start () {
 		t = GetComponent<Transform>();
+		currentHP = maxHP;
 	}
 	
 	// Update is called once per frame
@@ -91,20 +95,39 @@ public class aimEnemy : MonoBehaviour {
 			t.transform.position = Vector2.MoveTowards(t.position, targetChar.transform.position,
 				moveSpeed * Time.deltaTime);
 		}
+
+		//if health = 0
+		if (currentHP <= 0) {
+			Destroy (this.gameObject);
+		}
 	}
 	
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Destroy(other.gameObject);
-			Debug.Log("playerDead");
-
-			SceneManager.LoadScene("coopTestScene");
+			if (other.gameObject.name == "char0")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[0] -= contactDamage;
+				Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
+			}
+			else if (other.gameObject.name == "char1")
+			{
+				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
+				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
+			}
 		}
 	}
 	
-	
+	private void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.tag == "playerProj" || other.gameObject.tag == "compProj")
+		{
+			currentHP -= other.gameObject.GetComponent<standardBullet>().damage;
+			Destroy(other.gameObject);
+		}
+	}
+
 	//PRIVATE METHOD
 	private IEnumerator volley(){
 

@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 15620545}
   - component: {fileID: 15620544}
   - component: {fileID: 15620543}
+  - component: {fileID: 15620549}
   m_Layer: 8
   m_Name: invinciMech
   m_TagString: Untagged
@@ -529,6 +530,20 @@ Transform:
   m_Father: {fileID: 1440708618}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &15620549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 15620542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &19773870
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +557,7 @@ GameObject:
   - component: {fileID: 19773873}
   - component: {fileID: 19773872}
   - component: {fileID: 19773876}
+  - component: {fileID: 19773877}
   m_Layer: 8
   m_Name: straightShotBaddie (1)
   m_TagString: Untagged
@@ -681,6 +697,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagID: Enemy
+--- !u!114 &19773877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19773870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &25559801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,6 +3564,7 @@ GameObject:
   - component: {fileID: 155819099}
   - component: {fileID: 155819098}
   - component: {fileID: 155819097}
+  - component: {fileID: 155819102}
   m_Layer: 8
   m_Name: invinciMech (1)
   m_TagString: Untagged
@@ -3670,6 +3701,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &155819102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 155819095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &155850021
 GameObject:
   m_ObjectHideFlags: 0
@@ -13868,6 +13913,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &537505779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758258703950486, guid: d1978f24644715c49afb8b28cf29b7b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 2116280392}
+--- !u!114 &537505780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 537505779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &543510278
 GameObject:
   m_ObjectHideFlags: 0
@@ -20588,6 +20652,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &929546062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758258703950486, guid: d1978f24644715c49afb8b28cf29b7b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1100978435}
+--- !u!114 &929546063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929546062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
+--- !u!114 &929546064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929546062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 0}
+  ID: 
 --- !u!1 &948354845
 GameObject:
   m_ObjectHideFlags: 0
@@ -23407,6 +23503,7 @@ GameObject:
   - component: {fileID: 1126545562}
   - component: {fileID: 1126545561}
   - component: {fileID: 1126545560}
+  - component: {fileID: 1126545565}
   m_Layer: 11
   m_Name: char0
   m_TagString: Player
@@ -23667,6 +23764,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1126545565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1126545558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Player
 --- !u!1 &1127316107
 GameObject:
   m_ObjectHideFlags: 0
@@ -35828,6 +35939,7 @@ GameObject:
   - component: {fileID: 1812753653}
   - component: {fileID: 1812753654}
   - component: {fileID: 1812753655}
+  - component: {fileID: 1812753656}
   m_Layer: 8
   m_Name: straightShotBaddie
   m_TagString: Untagged
@@ -35967,6 +36079,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagID: Enemy
+--- !u!114 &1812753656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812753649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &1815069589
 GameObject:
   m_ObjectHideFlags: 0
@@ -38506,6 +38632,7 @@ GameObject:
   - component: {fileID: 1976425321}
   - component: {fileID: 1976425320}
   - component: {fileID: 1976425319}
+  - component: {fileID: 1976425325}
   m_Layer: 11
   m_Name: char1
   m_TagString: Player
@@ -38766,6 +38893,20 @@ Transform:
   m_Father: {fileID: 258202672}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976425325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976425318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Player
 --- !u!1 &1978708055
 GameObject:
   m_ObjectHideFlags: 0
@@ -39066,6 +39207,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1995274107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758258703950486, guid: d1978f24644715c49afb8b28cf29b7b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 675262187}
+--- !u!114 &1995274108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995274107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fea173c18e26f9448a56ad196a6235c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
+    type: 2}
+  ID: Enemy
 --- !u!1 &2001007418
 GameObject:
   m_ObjectHideFlags: 0

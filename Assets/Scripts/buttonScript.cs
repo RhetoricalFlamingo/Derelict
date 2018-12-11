@@ -81,11 +81,11 @@ public class buttonScript : MonoBehaviour {
 			corDoor.GetComponent<SpriteRenderer> ().color -= new Color (0f, 0f, 0f, Time.deltaTime * 12);
 			corDoor.GetComponent<BoxCollider2D>().enabled = false;
 
-			Debug.Log ("goingUp");
+			//Debug.Log ("goingUp");
 		}
 		else {
 			corDoor.GetComponent<SpriteRenderer> ().color = new Color (startColour.r, startColour.g, startColour.b, 0f);
-			Debug.Log ("Completely up");
+			//Debug.Log ("Completely up");
 		}
 	}
 
@@ -94,12 +94,12 @@ public class buttonScript : MonoBehaviour {
 			corDoor.transform.position -= Vector3.up * ((corDoor.transform.position.y - startY + 1) * Time.deltaTime * 10);
 			corDoor.GetComponent<SpriteRenderer> ().color += new Color (0f, 0f, 0f, Time.deltaTime * 12);
 
-			Debug.Log ("goingDown");
+			//Debug.Log ("goingDown");
 		}
 		else {
 			corDoor.GetComponent<BoxCollider2D>().enabled = true;
 			corDoor.GetComponent<SpriteRenderer> ().color = startColour;
-			Debug.Log ("completelyDown");
+			//Debug.Log ("completelyDown");
 		}
 	}
 }

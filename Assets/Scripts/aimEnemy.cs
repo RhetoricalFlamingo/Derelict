@@ -120,7 +120,7 @@ public class aimEnemy : MonoBehaviour {
 			}
 		}
 
-		redHitEffectRect.color = new Color (0f, 0f, 0f, .7f);
+		redHitEffectRect.color = new Color (0f, 0f, 0f, .75f);
 	}
 	
 	private void OnTriggerEnter2D (Collider2D other)

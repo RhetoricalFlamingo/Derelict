@@ -52,7 +52,7 @@ public class shooterBullet : MonoBehaviour {
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
-			redHitEffectRect.GetComponent<Image>().color = new Color (1f, 0f, 0f, .5f);
+			redHitEffectRect.GetComponent<Image>().color = new Color (1f, 0f, 0f, .75f);
 
 			Destroy(this.gameObject);
 		}

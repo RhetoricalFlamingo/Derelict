@@ -90,7 +90,7 @@ public class invinciMech_Script : MonoBehaviour
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
 
-			redHitEffectRect.color = new Color (1f, 0f, 0f, .5f);
+			redHitEffectRect.color = new Color (1f, 0f, 0f, .75f);
 		}
 	}
 

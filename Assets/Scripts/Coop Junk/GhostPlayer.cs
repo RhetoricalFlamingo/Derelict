@@ -209,7 +209,7 @@ public class GhostPlayer : MonoBehaviour
 
 					fireI = 0;
 					fireDelay += .025f;
-					thisAS.pitch -= .01f;
+					thisAS.pitch -= .015f;
 				}
 				else {
 					thisAS.PlayOneShot (gunShotSound);
@@ -226,7 +226,7 @@ public class GhostPlayer : MonoBehaviour
 
 					fireI = 0;
 					fireDelay += .025f;
-					thisAS.pitch -= .01f;
+					thisAS.pitch -= .015f;
 				}
 			}
 			//Debug.Log("shoot");

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gruntAI : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class gruntAI : MonoBehaviour
 	public bool active = false;
 
 	public GameObject PlayerManager;
+	public Image redHitEffectRect;
 	
 	// Use this for initialization
 	void Awake ()
@@ -78,7 +80,10 @@ public class gruntAI : MonoBehaviour
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
+
+			redHitEffectRect.color = new Color (1f, 0f, 0f, .5f);
 		}
+
 	}
 
 	private void TargetDistanceCheck()

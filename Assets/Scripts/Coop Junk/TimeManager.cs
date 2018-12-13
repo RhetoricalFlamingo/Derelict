@@ -48,7 +48,7 @@ public class TimeManager : MonoBehaviour
 			Time.timeScale = fracTime;
 		}
 
-		if (Time.timeScale == fracTime)		//increment towards ending slowmotion
+		if (Time.timeScale < 1)		//increment towards ending slowmotion
 		{
 			smI += Time.unscaledDeltaTime;
 
@@ -78,13 +78,13 @@ public class TimeManager : MonoBehaviour
 	public void heartBeatVignette ()	{
 		if (!vigIncreasing) {
 			currentVig -= (currentVig - minVig) * Time.deltaTime * vigSpeed;
-			if (currentVig <= minVig + .005f) {
+			if (currentVig <= minVig + .007f) {
 				vigIncreasing = true;
 			}
 		} 
 		else {
 			currentVig += (maxVig - currentVig) * Time.deltaTime * vigSpeed;
-			if (currentVig >= maxVig - .005f) {
+			if (currentVig >= maxVig - .007f) {
 				vigIncreasing = false;
 			}
 		}

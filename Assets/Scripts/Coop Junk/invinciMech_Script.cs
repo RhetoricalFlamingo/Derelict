@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class invinciMech_Script : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class invinciMech_Script : MonoBehaviour
 	
 	public GameObject GameManager;
 	public GameObject PlayerManager;
+	public Image redHitEffectRect;
 	
 	// Use this for initialization
 	void Awake ()
@@ -87,6 +89,8 @@ public class invinciMech_Script : MonoBehaviour
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
+
+			redHitEffectRect.color = new Color (1f, 0f, 0f, .5f);
 		}
 	}
 

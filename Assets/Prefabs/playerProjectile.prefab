@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5325d51be7f440b45b77ea82ecd74fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 3
   lifeEnd: 0.45
   ghost: {fileID: 0}
   turnManager: {fileID: 0}

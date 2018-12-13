@@ -29,11 +29,10 @@ public class GhostPlayer : MonoBehaviour
 	private Rigidbody2D thisRB;
 
 	[Header("Projectile/Shoot")]
-	public Rigidbody2D proj;
-	public Rigidbody2D weakProj;
-	public float projSpeed = 0;
-	public float weakProjSpeed = 0;
-	private bool lastFrameTrigger = false;
+	public Rigidbody2D proj, weakProj;
+	public float projSpeed = 0, weakProjSpeed = 0;
+	private float fireI = 0f;
+	public float startFireDelay = 0, fireDelay = 0f;
 
 	[Header("Particles/Trail")]
 	private ParticleSystem thisPS;
@@ -49,19 +48,25 @@ public class GhostPlayer : MonoBehaviour
 	private float mm_PlayerSpeed = 0;
 
 	[Header("TimeManager/SloMo")]
-	public GameObject PlayerManager, GameManager;
+	public GameObject PlayerManager;
+	public GameObject GameManager;
 	private bool inSloMo = false;
 	private float smI = 0;
+
+	[Header("Audio")]
+	private AudioSource thisAS;
+	public AudioClip gunShotSound;
 	
 	// Use this for initialization
 	void Awake ()
 	{
 		camRB = mainCam.GetComponent<Rigidbody2D>();
-		//mm_PlayerRB = mm_Player.GetComponent<Rigidbody2D>();
 		thisPS = this.GetComponent<ParticleSystem>();
 		thisRB = this.GetComponent<Rigidbody2D>();
 		thisTR = this.GetComponent<TrailRenderer>();
-		//mm_PlayerSpeed = camSpeed / 4.5f;
+		thisAS = this.GetComponent<AudioSource>();
+
+		fireDelay = startFireDelay;
 	}
 	
 	// Update is called once per frame
@@ -70,7 +75,6 @@ public class GhostPlayer : MonoBehaviour
 		LockToHolder();
 		Throw();
 		Rotation();
-		//CameraMove();
 		Shoot();
 	}
 
@@ -188,34 +192,49 @@ public class GhostPlayer : MonoBehaviour
 
 	void Shoot()	//Fire weapon from currently-controlled character
 	{
-		if (!lastFrameTrigger && Input.GetAxis("R2_C2") >= .8f)
+		if (Input.GetAxis("R2_C2") >= .75f)
 		{
-			lastFrameTrigger = true;
+			fireI += Time.deltaTime;
 
-			if (isHeld) {
-				Rigidbody2D shotInstance;
-				shotInstance = Instantiate (proj, playerChars [targetHost].transform.position + (playerChars [targetHost].transform.up * 12), Quaternion.identity);
-				shotInstance.transform.localScale = new Vector2 (1f, 1f);
-				shotInstance.velocity = playerChars [targetHost].transform.TransformDirection (Vector3.up * projSpeed);
+			if (fireI > fireDelay) {
+				if (isHeld) {
+					thisAS.PlayOneShot (gunShotSound);
 
-				mainCam.GetComponent<cameraController> ().shaking = true;
-			} else {
-				Rigidbody2D shotInstance;
-				shotInstance = Instantiate (weakProj, this.transform.position, Quaternion.identity);
-				shotInstance.transform.localScale = new Vector2 (.3f, .3f);
-				shotInstance.velocity = this.transform.TransformDirection (Vector3.up * weakProjSpeed);
+					Rigidbody2D shotInstance;
+					shotInstance = Instantiate (proj, playerChars [targetHost].transform.position + (playerChars [targetHost].transform.up * 12), Quaternion.identity);
+					shotInstance.transform.localScale = new Vector2 (1f, 1f);
+					shotInstance.velocity = playerChars [targetHost].transform.TransformDirection (Vector3.up * projSpeed);
 
-				thisRB.AddForce (-this.transform.up * .1f, ForceMode2D.Impulse);
-				//Debug.Log ("peaShot");
+					mainCam.GetComponent<cameraController> ().shaking = true;
 
-				mainCam.GetComponent<cameraController> ().shaking = true;
+					fireI = 0;
+					fireDelay += .025f;
+					thisAS.pitch -= .01f;
+				}
+				else {
+					thisAS.PlayOneShot (gunShotSound);
+
+					Rigidbody2D shotInstance;
+					shotInstance = Instantiate (weakProj, this.transform.position, Quaternion.identity);
+					shotInstance.transform.localScale = new Vector2 (.3f, .3f);
+					shotInstance.velocity = this.transform.TransformDirection (Vector3.up * weakProjSpeed);
+
+					thisRB.AddForce (-this.transform.up * .1f, ForceMode2D.Impulse);
+					//Debug.Log ("peaShot");
+
+					mainCam.GetComponent<cameraController> ().shaking = true;
+
+					fireI = 0;
+					fireDelay += .025f;
+					thisAS.pitch -= .01f;
+				}
 			}
 			//Debug.Log("shoot");
 		}
 
-		if (Input.GetAxis("R2_C2") < .5f && lastFrameTrigger)
+		if (Input.GetAxis("R2_C2") < .75f)
 		{
-			lastFrameTrigger = false;
+			fireI = 0;
 		}
 	}
 
@@ -232,10 +251,10 @@ public class GhostPlayer : MonoBehaviour
 	{
 		if (Time.timeScale == 1)
 		{
-			Time.timeScale = .1f;
+			Time.timeScale = .17f;
 		}
 
-		if (Time.timeScale == .1f)
+		if (Time.timeScale == .17f)
 		{
 			smI += Time.unscaledDeltaTime;
 

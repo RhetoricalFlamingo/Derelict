@@ -12,13 +12,16 @@ public class MovePlayer : MonoBehaviour
 {
 	private Vector2 LJOY_Write = new Vector2(0, 0);
 	private Vector2 RJOY_Write = new Vector2(0, 0);
-	
+
+	[Header ("Movement")]
 	public float[] moveImpulse = new float[2];
 		public float dashSpeed = 0;
 	private bool[] dashing_dash = new bool[2];
+	public float dash_Dur = 0f;
 	private bool[] cooling_dash = new bool[2];
 	private float[] dashDelayI = new float[2];
-	
+
+	[Header ("Health")]
 	public float[] currentHealth = new float[2];
 	public float[] maxHealth = new float[2];
 	public bool[] isInvincible = new bool[2];
@@ -33,6 +36,10 @@ public class MovePlayer : MonoBehaviour
 	public Rigidbody2D[] playerRBs = new Rigidbody2D[2];
 
 	public GameObject mainCam;
+
+	[Header ("Audio")]
+	public AudioSource thisSource;
+	public AudioClip dash0, dash1;
 	
 	public Image[] HPBars = new Image[2];
 	
@@ -45,6 +52,8 @@ public class MovePlayer : MonoBehaviour
 			dying[i] = false;
 			isInvincible[i] = false;
 		}
+
+		thisSource = this.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -92,6 +101,8 @@ public class MovePlayer : MonoBehaviour
 		{
 			if (char_Index == 0 && Input.GetButtonDown("L1"))
 			{
+				thisSource.PlayOneShot (dash0);
+
 				moveImpulse[0] += dashSpeed;
 				dashing_dash[0] = true;
 				chars[0].GetComponent<SpriteRenderer>().color -=Color.black * .3f;
@@ -101,6 +112,8 @@ public class MovePlayer : MonoBehaviour
 			}
 			if (char_Index == 1 && Input.GetButtonDown("R1"))
 			{
+				thisSource.PlayOneShot (dash1);
+
 				moveImpulse[1] += dashSpeed;
 				dashing_dash[1] = true;
 				chars[1].GetComponent<SpriteRenderer>().color -= Color.black * .3f;
@@ -114,7 +127,7 @@ public class MovePlayer : MonoBehaviour
 		{
 			dashDelayI[char_Index] += Time.deltaTime;
 
-			if (dashDelayI[char_Index] > .19f)
+			if (dashDelayI[char_Index] > dash_Dur)
 			{
 				moveImpulse[char_Index] -= dashSpeed;
 				dashDelayI[char_Index] = 0;
@@ -143,9 +156,16 @@ public class MovePlayer : MonoBehaviour
 
 	public void PickUpGun()		//When a playerCharacter is colliding with the GUN, button input picks it up
 	{
-		if (overGun && (Input.GetButton("R3") || Input.GetButton("L3")))
+		if (overGun && 
+			(gun.GetComponent<GhostPlayer>().targetHost == 0 && (dashing_dash[0] || cooling_dash[0]))
+			|| gun.GetComponent<GhostPlayer>().targetHost == 1 && (cooling_dash[0] || cooling_dash[1]))
 		{
+			if (!gun.GetComponent<GhostPlayer> ().isHeld) {
+				gun.GetComponent<GhostPlayer> ().fireDelay = gun.GetComponent<GhostPlayer> ().startFireDelay;
+				gun.GetComponent<AudioSource> ().pitch = 1f;
+			}
 			gun.GetComponent<GhostPlayer>().isHeld = true;
+
 		}
 	}
 

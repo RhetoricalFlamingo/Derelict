@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class shooterBullet : MonoBehaviour {
 	
@@ -13,6 +14,7 @@ public class shooterBullet : MonoBehaviour {
 
 	private Transform t;
 	private GameObject PlayerManager;
+	public GameObject redHitEffectRect;
 	
 	// Use this for initialization
 	void Awake () 
@@ -22,6 +24,8 @@ public class shooterBullet : MonoBehaviour {
 		timer = Time.time;
 		
 		PlayerManager = GameObject.FindGameObjectWithTag("playerManager");
+
+		redHitEffectRect = GameObject.FindGameObjectWithTag ("redHitEffect");
 	}
 	
 	// Update is called once per frame
@@ -48,7 +52,8 @@ public class shooterBullet : MonoBehaviour {
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
-			
+			redHitEffectRect.GetComponent<Image>().color = new Color (1f, 0f, 0f, .5f);
+
 			Destroy(this.gameObject);
 		}
 	}

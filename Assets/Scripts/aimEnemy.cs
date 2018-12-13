@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class aimEnemy : MonoBehaviour {
 	
@@ -23,6 +24,7 @@ public class aimEnemy : MonoBehaviour {
 	public GameObject bulletInstance;
 	private Transform t;
 	public GameObject PlayerManager;
+	public Image redHitEffectRect;
 
 	[Header("STATS")]
 	public float contactDamage = 0f, maxHP = 0f;
@@ -117,6 +119,8 @@ public class aimEnemy : MonoBehaviour {
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
 		}
+
+		redHitEffectRect.color = new Color (0f, 0f, 0f, .7f);
 	}
 	
 	private void OnTriggerEnter2D (Collider2D other)

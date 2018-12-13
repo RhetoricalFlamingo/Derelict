@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e32062c0d311dd48bbcdfafa26dd864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
+  maxHP: 6
   moveSpeed: 16
   contactDamage: 2
   chars:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
     type: 2}
-  ID: Enemy
+  ID: IMech
 --- !u!212 &212954391707147280
 SpriteRenderer:
   m_ObjectHideFlags: 1

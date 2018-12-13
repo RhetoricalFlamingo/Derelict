@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738430420509588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35, y: -574, z: 0}
+  m_LocalPosition: {x: 557.60474, y: 61.857815, z: 0}
   m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprayObject: {fileID: 4440869257865166, guid: c2a86df35d1b0c349bd3c116f274439f,
     type: 2}
-  ID: Enemy
+  ID: IMech
 --- !u!114 &114326973470065736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc4779a94fae4e49905095c48a3cb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 20
+  maxHP: 24
   moveSpeed: 13
   contactDamage: 4
   stunned: 0

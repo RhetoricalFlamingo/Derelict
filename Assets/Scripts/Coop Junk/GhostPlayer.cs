@@ -216,7 +216,7 @@ public class GhostPlayer : MonoBehaviour
 					mainCam.GetComponent<cameraController> ().shaking = true;
 
 					fireI = 0;
-					fireDelay += .025f;
+					fireDelay += .015f;
 					thisAS.pitch -= .015f;
 				}
 				else {
@@ -233,7 +233,7 @@ public class GhostPlayer : MonoBehaviour
 					mainCam.GetComponent<cameraController> ().shaking = true;
 
 					fireI = 0;
-					fireDelay += .025f;
+					fireDelay += .015f;
 					thisAS.pitch -= .015f;
 				}
 			}

@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
 
 	public PostProcessingProfile mainPPP;
 	private VignetteModel.Settings vigSettings;
-	private float minVig = .43f, maxVig = .5f, currentVig = 0;
+	public float minVig = .43f, maxVig = .5f, currentVig = 0;
 	public float vigSpeed = 5f;
 	private bool vigIncreasing = false;
 	

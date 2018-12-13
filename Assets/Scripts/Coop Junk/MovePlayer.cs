@@ -42,6 +42,8 @@ public class MovePlayer : MonoBehaviour
 	public AudioClip dash0, dash1;
 	
 	public Image[] HPBars = new Image[2];
+	public GameObject gameManager;
+	private float dyingMinVig = 0f, dyingMaxVig = 0f, startMinVig = 0f, startMaxVig = 0f;
 	
 	// Use this for initialization
 	void Awake () {
@@ -54,6 +56,10 @@ public class MovePlayer : MonoBehaviour
 		}
 
 		thisSource = this.GetComponent<AudioSource> ();
+		startMinVig = gameManager.GetComponent<TimeManager> ().minVig;
+		startMaxVig = gameManager.GetComponent<TimeManager> ().maxVig;
+		dyingMinVig = startMinVig + .04f;
+		dyingMaxVig = startMaxVig + .09f;
 	}
 	
 	// Update is called once per frame
@@ -173,34 +179,39 @@ public class MovePlayer : MonoBehaviour
 	{
 		HPBars[char_Index].fillAmount = currentHealth[char_Index] / maxHealth[char_Index];
 		
-		if (currentHealth[char_Index] <= 0)
-		{
-			dying[char_Index] = true;
+		if (currentHealth [char_Index] <= 0) {
+			dying [char_Index] = true;
 
-			if (dying[char_Index])
-			{
-				Debug.Log("Player" + char_Index + "is Dying");
-				moveImpulse[char_Index] = deathSpeed[char_Index];
-				deathI[char_Index] += Time.deltaTime;
+			gameManager.GetComponent<TimeManager> ().minVig = dyingMinVig;
+			gameManager.GetComponent<TimeManager> ().maxVig = dyingMaxVig;
 
-				if (deathI[char_Index] >= 10)
-				{
-					SceneManager.LoadScene("coopTestScene");
+			if (dying [char_Index]) {
+				Debug.Log ("Player" + char_Index + "is Dying");
+				moveImpulse [char_Index] = deathSpeed [char_Index];
+				deathI [char_Index] += Time.deltaTime;
+
+				if (deathI [char_Index] >= 10) {
+					SceneManager.LoadScene ("coopTestScene");
 				}
 			}
+		}
+		else if (!dying[0] && !dying[1]) {
+			gameManager.GetComponent<TimeManager> ().minVig = startMinVig;
+			gameManager.GetComponent<TimeManager> ().maxVig = startMaxVig;
 		}
 	}
 
 	void Revive(int char_Index)		//Allow one moving character to revive the other with an input in proximity
 	{
-		if (dying[char_Index] && (Input.GetButton("L3") || Input.GetButton("R3")) && Vector2.Distance(chars[0].transform.position, chars[1].transform.position) < 12)
-		{
-			dying[char_Index] = false;
-			deathI[char_Index] = 0;
-			moveImpulse[char_Index] = 60f;
-			currentHealth[char_Index] = maxHealth[char_Index];
+		if (dying [char_Index] && (Input.GetButton ("L3") || Input.GetButton ("R3")) && Vector2.Distance (chars [0].transform.position, chars [1].transform.position) < 12) {
 			
-			Debug.Log("Res");
+
+			dying [char_Index] = false;
+			deathI [char_Index] = 0;
+			moveImpulse [char_Index] = 60f;
+			currentHealth [char_Index] = maxHealth [char_Index];
+			
+			Debug.Log ("Res");
 		}
 	}
 }

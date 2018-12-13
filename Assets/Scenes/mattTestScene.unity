@@ -10318,6 +10318,7 @@ MonoBehaviour:
   HPBars:
   - {fileID: 1628695021}
   - {fileID: 1053001457}
+  gameManager: {fileID: 1714463312}
 --- !u!82 &258202674
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34492,6 +34493,9 @@ MonoBehaviour:
   timerMS: {fileID: 435003937}
   timerNS: {fileID: 886367059}
   mainPPP: {fileID: 11400000, guid: c123da8fe4cc5d040bea9c559173d51a, type: 2}
+  minVig: 0.43
+  maxVig: 0.5
+  currentVig: 0
   vigSpeed: 4
 --- !u!4 &1714463314
 Transform:

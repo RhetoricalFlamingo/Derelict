@@ -13,8 +13,7 @@ public class GhostPlayer : MonoBehaviour
 
 	public int targetHost = 0;
 	private int otherHost = 0;
-	private bool atTarget = false;
-	[FormerlySerializedAs("repoSpeed")] public float throwSpeed = 0;
+	public float throwSpeed = 0;
 	private float modThrowSpeed = 0;
 
 	[Header("Rotation")]
@@ -25,7 +24,7 @@ public class GhostPlayer : MonoBehaviour
 	[Header("Throw")]
 	private float chargeI = 0;
 	public float chargeMax = 0;
-	[FormerlySerializedAs("haveBullet")] public bool isHeld = true;
+	public bool isHeld = true;
 	private Rigidbody2D thisRB;
 
 	[Header("Projectile/Shoot")]

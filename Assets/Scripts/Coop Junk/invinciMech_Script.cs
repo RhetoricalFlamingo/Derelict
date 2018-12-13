@@ -11,16 +11,18 @@ public class invinciMech_Script : MonoBehaviour
 	public float moveSpeed = 0;
 	public float contactDamage = 0;
 	
-	public GameObject[] chars = new GameObject[2];
-	private GameObject targetChar;
-	public GameObject ghost;
+
 
 	public bool stunned = false;
 	public float stunMax = 0;
 	float stunI = 0;
 
 	public bool active = false;
-	
+
+	[Header("Instances")]
+	public GameObject[] chars = new GameObject[2];
+	private GameObject targetChar;
+	public GameObject ghost;
 	public GameObject GameManager;
 	public GameObject PlayerManager;
 	public Image redHitEffectRect;

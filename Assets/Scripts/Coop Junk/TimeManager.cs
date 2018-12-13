@@ -6,17 +6,19 @@ using UnityEngine.PostProcessing;
 
 public class TimeManager : MonoBehaviour
 {
-
+	[Header("Slow Motion")]
 	public bool inSloMo = false;
 	public float smI = 0;
 
 	public float fracTime = .06f, sloDur = 0;
 
+	[Header("Timer")]
 	private float timeElapsed = 0f;
 	public float timeInSeconds = 0f, timeInMS = 0f, timeInNS = 0f;
 
 	public Text timerSeconds, timerMS, timerNS;
 
+	[Header("Vignetting")]
 	public PostProcessingProfile mainPPP;
 	private VignetteModel.Settings vigSettings;
 	public float minVig = .43f, maxVig = .5f, currentVig = 0;

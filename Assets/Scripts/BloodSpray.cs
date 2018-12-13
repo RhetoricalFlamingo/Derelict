@@ -29,7 +29,7 @@ public class BloodSpray : MonoBehaviour {
 		{
 			Vector2 direction = this.transform.position - other.transform.position;
 			float theta = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-			Debug.Log ("Instantiate bloodspray at angle measure " + theta);
+			//Debug.Log ("Instantiate bloodspray at angle measure " + theta);
 
 			Transform sprayInstance = Instantiate (
 				sprayObject,

@@ -12,6 +12,7 @@ public class shooterBullet : MonoBehaviour {
 	private float timer;
 	private float lifetime = 5;
 
+	[Header("Instances")]
 	private Transform t;
 	private GameObject PlayerManager;
 	public GameObject redHitEffectRect;
@@ -45,12 +46,12 @@ public class shooterBullet : MonoBehaviour {
 			if (other.gameObject.name == "char0")
 			{
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[0] -= contactDamage;
-				Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
+				//Debug.Log("Player0 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[0]);
 			}
 			else if (other.gameObject.name == "char1")
 			{
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
-				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
+				//Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
 			redHitEffectRect.GetComponent<Image>().color = new Color (1f, 0f, 0f, .75f);
 

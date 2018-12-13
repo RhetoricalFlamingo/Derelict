@@ -118,9 +118,9 @@ public class aimEnemy : MonoBehaviour {
 				PlayerManager.GetComponent<MovePlayer>().currentHealth[1] -= contactDamage;
 				Debug.Log("Player1 New Health = " + PlayerManager.GetComponent<MovePlayer>().currentHealth[1]);
 			}
-		}
 
-		redHitEffectRect.color = new Color (0f, 0f, 0f, .75f);
+			redHitEffectRect.color = new Color (1f, 0f, 0f, .75f);
+		}
 	}
 	
 	private void OnTriggerEnter2D (Collider2D other)

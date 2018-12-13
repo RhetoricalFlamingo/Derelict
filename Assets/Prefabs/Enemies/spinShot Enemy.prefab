@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4200068447923144}
   - component: {fileID: 212434644329299818}
   - component: {fileID: 58236945178184208}
+  - component: {fileID: 58220066607009530}
   - component: {fileID: 50015813383020680}
   - component: {fileID: 114506661440355470}
   - component: {fileID: 114677341813075376}
@@ -65,6 +66,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58220066607009530
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758258703950486}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 11
 --- !u!58 &58236945178184208
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -103,10 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b17d4235ad83f041b1edab7d6bb8e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 50
+  rotationSpeed: 60
   isActive: 0
   shotSpeed: 42
-  shotDelay: 0.5
+  shotDelay: 0.4
   bulletInstance: {fileID: 1802708576519680, guid: 310860e739ffa2347958a07308556994,
     type: 2}
 --- !u!114 &114677341813075376
@@ -129,6 +145,7 @@ MonoBehaviour:
   ID: spinShot
   active: 0
   PlayerManager: {fileID: 0}
+  redHitEffectRect: {fileID: 0}
 --- !u!212 &212434644329299818
 SpriteRenderer:
   m_ObjectHideFlags: 1

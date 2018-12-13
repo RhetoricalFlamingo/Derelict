@@ -13,6 +13,7 @@ TagManager:
   - playerSlo
   - playerManager
   - redHitEffect
+  - Enemy
   layers:
   - Default
   - TransparentFX

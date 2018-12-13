@@ -37,7 +37,7 @@ public class buttonScript : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D (Collider2D other)	{
-		if (other.gameObject.tag == "playerEmpty") {
+		if (other.gameObject.tag == "playerEmpty" || other.gameObject.tag == "Enemy") {
 
 			pressable = true;
 

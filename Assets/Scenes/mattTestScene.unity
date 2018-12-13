@@ -10304,7 +10304,7 @@ MonoBehaviour:
   - 12
   - 12
   gun: {fileID: 249336814}
-  overGun: 0
+  overGun: 0000
   chars:
   - {fileID: 1126545558}
   - {fileID: 1976425318}

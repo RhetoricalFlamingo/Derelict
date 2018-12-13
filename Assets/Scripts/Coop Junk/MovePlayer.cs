@@ -30,7 +30,7 @@ public class MovePlayer : MonoBehaviour
 	private float[] deathI = new float[2];
 
 	[FormerlySerializedAs("ghost")] public GameObject gun;
-	public bool overGun = false;
+	public bool[] overGun = new bool[2];
 	
 	public GameObject[] chars = new GameObject[2];
 	public Rigidbody2D[] playerRBs = new Rigidbody2D[2];
@@ -162,16 +162,23 @@ public class MovePlayer : MonoBehaviour
 
 	public void PickUpGun()		//When a playerCharacter is colliding with the GUN, button input picks it up
 	{
-		if (overGun && 
-			(gun.GetComponent<GhostPlayer>().targetHost == 0 && (dashing_dash[0] || cooling_dash[0]))
-			|| gun.GetComponent<GhostPlayer>().targetHost == 1 && (cooling_dash[0] || cooling_dash[1]))
+		if (overGun[0] && (dashing_dash[0] || cooling_dash[0]))
 		{
 			if (!gun.GetComponent<GhostPlayer> ().isHeld) {
 				gun.GetComponent<GhostPlayer> ().fireDelay = gun.GetComponent<GhostPlayer> ().startFireDelay;
 				gun.GetComponent<AudioSource> ().pitch = 1f;
 			}
 			gun.GetComponent<GhostPlayer>().isHeld = true;
-
+			gun.GetComponent<GhostPlayer> ().targetHost = 0;
+		}
+		if (overGun[1] && (dashing_dash[1] || cooling_dash[1]))
+		{
+			if (!gun.GetComponent<GhostPlayer> ().isHeld) {
+				gun.GetComponent<GhostPlayer> ().fireDelay = gun.GetComponent<GhostPlayer> ().startFireDelay;
+				gun.GetComponent<AudioSource> ().pitch = 1f;
+			}
+			gun.GetComponent<GhostPlayer>().isHeld = true;
+			gun.GetComponent<GhostPlayer> ().targetHost = 1;
 		}
 	}
 

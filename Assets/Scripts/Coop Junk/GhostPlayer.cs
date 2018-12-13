@@ -91,18 +91,27 @@ public class GhostPlayer : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "playerEmpty")
+		if (other.gameObject.name == "char0Empty")
 		{
-			PlayerDistCheck();
-			PlayerManager.GetComponent<MovePlayer>().overGun = true;
+			//PlayerDistCheck();
+			PlayerManager.GetComponent<MovePlayer>().overGun[0] = true;
+		}
+		else if (other.gameObject.name == "char1Empty")
+		{
+			//PlayerDistCheck();
+			PlayerManager.GetComponent<MovePlayer>().overGun[1] = true;
 		}
 	}
 	
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "playerEmpty")
+		if (other.gameObject.name == "char0Empty")
 		{
-			PlayerManager.GetComponent<MovePlayer>().overGun = false;
+			PlayerManager.GetComponent<MovePlayer>().overGun[0] = false;
+		}
+		if (other.gameObject.name == "char1Empty")
+		{
+			PlayerManager.GetComponent<MovePlayer>().overGun[1] = false;
 		}
 	}
 	
@@ -274,11 +283,11 @@ public class GhostPlayer : MonoBehaviour
 
 		if (dist0ToPlayer < dist1ToPlayer)
 		{
-			targetHost = 0;
+			//targetHost = 0;
 		}
 		else
 		{
-			targetHost = 1;
+			//targetHost = 1;
 		}
 	}
 }
